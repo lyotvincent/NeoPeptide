@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.Disease_CancerMapper">
+  <resultMap id="BaseResultMap" type="model.Disease_Cancer">
+    <constructor>
+      <idArg column="No" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="Cancer" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Gene" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Antigen" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Nucleic acid exchange" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Amino acid exchange" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HLA Allele" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Length" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="Peptide" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Adjuvant" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Journal Ref" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PMID" javaType="java.lang.Long" jdbcType="BIGINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    No, Cancer, Gene, Antigen, `Nucleic acid exchange`, `Amino acid exchange`, `HLA Allele`,
+    Length, Peptide, Adjuvant, `Journal Ref`, PMID
+  </sql>
+  <select id="Cancer_SelectByKey" parameterType="java.lang.String" resultType="Disease_Cancer">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM cancerdb WHERE CONCAT_ws('',<include refid="Base_Column_List" />) LIKE "%"#{key}"%"
+  </select>
+  <select id="Cancer_SelectByNo" parameterType="java.lang.Long" resultType="Disease_Cancer">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM cancerdb where No = #{no,jdbcType=BIGINT}
+  </select>
+  <select id="Cancer_SelectBySql" parameterType="java.lang.String" resultType="Disease_Cancer">
+    ${_parameter}
+  </select>
+  <!--<select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">-->
+    <!--select -->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from cancerdb-->
+    <!--where No = #{no,jdbcType=BIGINT}-->
+  <!--</select>-->
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">-->
+    <!--delete from cancerdb-->
+    <!--where No = #{no,jdbcType=BIGINT}-->
+  <!--</delete>-->
+  <!--<insert id="insert" parameterType="model.Disease_Cancer">-->
+    <!--insert into cancerdb (No, Cancer, Gene, -->
+      <!--Antigen, "Nucleic acid exchange", "Amino acid exchange", -->
+      <!--"HLA Allele", Length, Peptide, -->
+      <!--Adjuvant, "Journal Ref", PMID-->
+      <!--)-->
+    <!--values (#{no,jdbcType=BIGINT}, #{cancer,jdbcType=VARCHAR}, #{gene,jdbcType=VARCHAR}, -->
+      <!--#{antigen,jdbcType=VARCHAR}, #{nucleicAcidExchange,jdbcType=VARCHAR}, #{aminoAcidExchange,jdbcType=VARCHAR}, -->
+      <!--#{hlaAllele,jdbcType=VARCHAR}, #{length,jdbcType=BIGINT}, #{peptide,jdbcType=VARCHAR}, -->
+      <!--#{adjuvant,jdbcType=VARCHAR}, #{journalRef,jdbcType=VARCHAR}, #{pmid,jdbcType=BIGINT}-->
+      <!--)-->
+  <!--</insert>-->
+  <!--<insert id="insertSelective" parameterType="model.Disease_Cancer">-->
+    <!--insert into cancerdb-->
+    <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+      <!--<if test="no != null">-->
+        <!--No,-->
+      <!--</if>-->
+      <!--<if test="cancer != null">-->
+        <!--Cancer,-->
+      <!--</if>-->
+      <!--<if test="gene != null">-->
+        <!--Gene,-->
+      <!--</if>-->
+      <!--<if test="antigen != null">-->
+        <!--Antigen,-->
+      <!--</if>-->
+      <!--<if test="nucleicAcidExchange != null">-->
+        <!--"Nucleic acid exchange",-->
+      <!--</if>-->
+      <!--<if test="aminoAcidExchange != null">-->
+        <!--"Amino acid exchange",-->
+      <!--</if>-->
+      <!--<if test="hlaAllele != null">-->
+        <!--"HLA Allele",-->
+      <!--</if>-->
+      <!--<if test="length != null">-->
+        <!--Length,-->
+      <!--</if>-->
+      <!--<if test="peptide != null">-->
+        <!--Peptide,-->
+      <!--</if>-->
+      <!--<if test="adjuvant != null">-->
+        <!--Adjuvant,-->
+      <!--</if>-->
+      <!--<if test="journalRef != null">-->
+        <!--"Journal Ref",-->
+      <!--</if>-->
+      <!--<if test="pmid != null">-->
+        <!--PMID,-->
+      <!--</if>-->
+    <!--</trim>-->
+    <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+      <!--<if test="no != null">-->
+        <!--#{no,jdbcType=BIGINT},-->
+      <!--</if>-->
+      <!--<if test="cancer != null">-->
+        <!--#{cancer,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="gene != null">-->
+        <!--#{gene,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="antigen != null">-->
+        <!--#{antigen,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="nucleicAcidExchange != null">-->
+        <!--#{nucleicAcidExchange,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="aminoAcidExchange != null">-->
+        <!--#{aminoAcidExchange,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="hlaAllele != null">-->
+        <!--#{hlaAllele,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="length != null">-->
+        <!--#{length,jdbcType=BIGINT},-->
+      <!--</if>-->
+      <!--<if test="peptide != null">-->
+        <!--#{peptide,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="adjuvant != null">-->
+        <!--#{adjuvant,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="journalRef != null">-->
+        <!--#{journalRef,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="pmid != null">-->
+        <!--#{pmid,jdbcType=BIGINT},-->
+      <!--</if>-->
+    <!--</trim>-->
+  <!--</insert>-->
+  <!--<update id="updateByPrimaryKeySelective" parameterType="model.Disease_Cancer">-->
+    <!--update cancerdb-->
+    <!--<set>-->
+      <!--<if test="cancer != null">-->
+        <!--Cancer = #{cancer,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="gene != null">-->
+        <!--Gene = #{gene,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="antigen != null">-->
+        <!--Antigen = #{antigen,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="nucleicAcidExchange != null">-->
+        <!--"Nucleic acid exchange" = #{nucleicAcidExchange,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="aminoAcidExchange != null">-->
+        <!--"Amino acid exchange" = #{aminoAcidExchange,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="hlaAllele != null">-->
+        <!--"HLA Allele" = #{hlaAllele,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="length != null">-->
+        <!--Length = #{length,jdbcType=BIGINT},-->
+      <!--</if>-->
+      <!--<if test="peptide != null">-->
+        <!--Peptide = #{peptide,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="adjuvant != null">-->
+        <!--Adjuvant = #{adjuvant,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="journalRef != null">-->
+        <!--"Journal Ref" = #{journalRef,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="pmid != null">-->
+        <!--PMID = #{pmid,jdbcType=BIGINT},-->
+      <!--</if>-->
+    <!--</set>-->
+    <!--where No = #{no,jdbcType=BIGINT}-->
+  <!--</update>-->
+  <!--<update id="updateByPrimaryKey" parameterType="model.Disease_Cancer">-->
+    <!--update cancerdb-->
+    <!--set Cancer = #{cancer,jdbcType=VARCHAR},-->
+      <!--Gene = #{gene,jdbcType=VARCHAR},-->
+      <!--Antigen = #{antigen,jdbcType=VARCHAR},-->
+      <!--"Nucleic acid exchange" = #{nucleicAcidExchange,jdbcType=VARCHAR},-->
+      <!--"Amino acid exchange" = #{aminoAcidExchange,jdbcType=VARCHAR},-->
+      <!--"HLA Allele" = #{hlaAllele,jdbcType=VARCHAR},-->
+      <!--Length = #{length,jdbcType=BIGINT},-->
+      <!--Peptide = #{peptide,jdbcType=VARCHAR},-->
+      <!--Adjuvant = #{adjuvant,jdbcType=VARCHAR},-->
+      <!--"Journal Ref" = #{journalRef,jdbcType=VARCHAR},-->
+      <!--PMID = #{pmid,jdbcType=BIGINT}-->
+    <!--where No = #{no,jdbcType=BIGINT}-->
+  <!--</update>-->
+  <!--<resultMap id="BaseResultMap" type="model.Disease_Cancer">-->
+    <!--<constructor>-->
+      <!--<idArg column="No" javaType="java.lang.Long" jdbcType="BIGINT" />-->
+      <!--<arg column="Cancer" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Gene" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Antigen" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Nucleic acid exchange" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Amino acid exchange" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="HLA Allele" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Length" javaType="java.lang.Long" jdbcType="BIGINT" />-->
+      <!--<arg column="Peptide" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Adjuvant" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Journal Ref" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="PMID" javaType="java.lang.Long" jdbcType="BIGINT" />-->
+    <!--</constructor>-->
+  <!--</resultMap>-->
+  <!--<sql id="Base_Column_List">-->
+    <!--No, Cancer, Gene, Antigen, "Nucleic acid exchange", "Amino acid exchange", "HLA Allele", -->
+    <!--Length, Peptide, Adjuvant, "Journal Ref", PMID-->
+  <!--</sql>-->
+  <!--<select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">-->
+    <!--select -->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from cancerdb-->
+    <!--where No = #{no,jdbcType=BIGINT}-->
+  <!--</select>-->
+
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">-->
+    <!--delete from cancerdb-->
+    <!--where No = #{no,jdbcType=BIGINT}-->
+  <!--</delete>-->
+  <!--<insert id="insert" parameterType="model.Disease_Cancer">-->
+    <!--insert into cancerdb (No, Cancer, Gene, -->
+      <!--Antigen, "Nucleic acid exchange", "Amino acid exchange", -->
+      <!--"HLA Allele", Length, Peptide, -->
+      <!--Adjuvant, "Journal Ref", PMID-->
+      <!--)-->
+    <!--values (#{no,jdbcType=BIGINT}, #{cancer,jdbcType=VARCHAR}, #{gene,jdbcType=VARCHAR}, -->
+      <!--#{antigen,jdbcType=VARCHAR}, #{nucleicAcidExchange,jdbcType=VARCHAR}, #{aminoAcidExchange,jdbcType=VARCHAR}, -->
+      <!--#{hlaAllele,jdbcType=VARCHAR}, #{length,jdbcType=BIGINT}, #{peptide,jdbcType=VARCHAR}, -->
+      <!--#{adjuvant,jdbcType=VARCHAR}, #{journalRef,jdbcType=VARCHAR}, #{pmid,jdbcType=BIGINT}-->
+      <!--)-->
+  <!--</insert>-->
+  <!--<insert id="insertSelective" parameterType="model.Disease_Cancer">-->
+    <!--insert into cancerdb-->
+    <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+      <!--<if test="no != null">-->
+        <!--No,-->
+      <!--</if>-->
+      <!--<if test="cancer != null">-->
+        <!--Cancer,-->
+      <!--</if>-->
+      <!--<if test="gene != null">-->
+        <!--Gene,-->
+      <!--</if>-->
+      <!--<if test="antigen != null">-->
+        <!--Antigen,-->
+      <!--</if>-->
+      <!--<if test="nucleicAcidExchange != null">-->
+        <!--"Nucleic acid exchange",-->
+      <!--</if>-->
+      <!--<if test="aminoAcidExchange != null">-->
+        <!--"Amino acid exchange",-->
+      <!--</if>-->
+      <!--<if test="hlaAllele != null">-->
+        <!--"HLA Allele",-->
+      <!--</if>-->
+      <!--<if test="length != null">-->
+        <!--Length,-->
+      <!--</if>-->
+      <!--<if test="peptide != null">-->
+        <!--Peptide,-->
+      <!--</if>-->
+      <!--<if test="adjuvant != null">-->
+        <!--Adjuvant,-->
+      <!--</if>-->
+      <!--<if test="journalRef != null">-->
+        <!--"Journal Ref",-->
+      <!--</if>-->
+      <!--<if test="pmid != null">-->
+        <!--PMID,-->
+      <!--</if>-->
+    <!--</trim>-->
+    <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+      <!--<if test="no != null">-->
+        <!--#{no,jdbcType=BIGINT},-->
+      <!--</if>-->
+      <!--<if test="cancer != null">-->
+        <!--#{cancer,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="gene != null">-->
+        <!--#{gene,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="antigen != null">-->
+        <!--#{antigen,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="nucleicAcidExchange != null">-->
+        <!--#{nucleicAcidExchange,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="aminoAcidExchange != null">-->
+        <!--#{aminoAcidExchange,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="hlaAllele != null">-->
+        <!--#{hlaAllele,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="length != null">-->
+        <!--#{length,jdbcType=BIGINT},-->
+      <!--</if>-->
+      <!--<if test="peptide != null">-->
+        <!--#{peptide,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="adjuvant != null">-->
+        <!--#{adjuvant,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="journalRef != null">-->
+        <!--#{journalRef,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="pmid != null">-->
+        <!--#{pmid,jdbcType=BIGINT},-->
+      <!--</if>-->
+    <!--</trim>-->
+  <!--</insert>-->
+  <!--<update id="updateByPrimaryKeySelective" parameterType="model.Disease_Cancer">-->
+    <!--update cancerdb-->
+    <!--<set>-->
+      <!--<if test="cancer != null">-->
+        <!--Cancer = #{cancer,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="gene != null">-->
+        <!--Gene = #{gene,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="antigen != null">-->
+        <!--Antigen = #{antigen,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="nucleicAcidExchange != null">-->
+        <!--"Nucleic acid exchange" = #{nucleicAcidExchange,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="aminoAcidExchange != null">-->
+        <!--"Amino acid exchange" = #{aminoAcidExchange,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="hlaAllele != null">-->
+        <!--"HLA Allele" = #{hlaAllele,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="length != null">-->
+        <!--Length = #{length,jdbcType=BIGINT},-->
+      <!--</if>-->
+      <!--<if test="peptide != null">-->
+        <!--Peptide = #{peptide,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="adjuvant != null">-->
+        <!--Adjuvant = #{adjuvant,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="journalRef != null">-->
+        <!--"Journal Ref" = #{journalRef,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="pmid != null">-->
+        <!--PMID = #{pmid,jdbcType=BIGINT},-->
+      <!--</if>-->
+    <!--</set>-->
+    <!--where No = #{no,jdbcType=BIGINT}-->
+  <!--</update>-->
+  <!--<update id="updateByPrimaryKey" parameterType="model.Disease_Cancer">-->
+    <!--update cancerdb-->
+    <!--set Cancer = #{cancer,jdbcType=VARCHAR},-->
+      <!--Gene = #{gene,jdbcType=VARCHAR},-->
+      <!--Antigen = #{antigen,jdbcType=VARCHAR},-->
+      <!--"Nucleic acid exchange" = #{nucleicAcidExchange,jdbcType=VARCHAR},-->
+      <!--"Amino acid exchange" = #{aminoAcidExchange,jdbcType=VARCHAR},-->
+      <!--"HLA Allele" = #{hlaAllele,jdbcType=VARCHAR},-->
+      <!--Length = #{length,jdbcType=BIGINT},-->
+      <!--Peptide = #{peptide,jdbcType=VARCHAR},-->
+      <!--Adjuvant = #{adjuvant,jdbcType=VARCHAR},-->
+      <!--"Journal Ref" = #{journalRef,jdbcType=VARCHAR},-->
+      <!--PMID = #{pmid,jdbcType=BIGINT}-->
+    <!--where No = #{no,jdbcType=BIGINT}-->
+  <!--</update>-->
+</mapper>

@@ -1,0 +1,8 @@
+vcftest\dao\IUserDao.class
+vcftest\controller\UserController.class
+vcftest\service\ISearchService.class
+vcftest\model\User.class
+vcftest\controller\HtmlController.class
+vcftest\service\impl\UserServiceImpl.class
+vcftest\service\IUserService.class
+vcftest\controller\SearchController.class

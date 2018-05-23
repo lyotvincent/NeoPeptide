@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interior-Design-Responsive-Website-Templates-Edge">
+    <meta name="author" content="">
+    <title></title>
+    <link rel="favicon" href="../../static/imgs/favicon.png">
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="../../static/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <!--web uploader-->
+    <link rel="stylesheet" type="text/css" href="../../static/modules/webuploader/webuploader.css">
+    <!--self-->
+    <link rel="stylesheet" type="text/css" href="../../static/css/Search.css">
+    <link rel="stylesheet" type="text/css" href="../../static/js/fancybox/jquery.fancybox.css">
+    <!--layui-->
+    <link rel="stylesheet" type="text/css" href="../../static/modules/layui/css/layui.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../static/js/html5shiv.js"></script>
+    <script src="../../static/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<div id="header-top">
+    <!--  HEADER TOP -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="text">
+
+                    <!-- <p>Phone:</p> -->
+
+                </div>
+            </div><!-- end -->
+            <div class="col-md-6">
+                <div class="social text-center pull-right">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-flickr"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </div>
+
+            </div><!-- end -->
+        </div><!-- end .row -->
+    </div>
+</div>
+<div class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav mainNav">
+                <li><a href="/html/index.do">Home</a></li>
+                <li><a href="/html/search.do">Search</a></li>
+                <li><a href="/html/download.do">Download</a></li>
+                <li class="active"><a href="/html/chart.do">Chart</a></li>
+                <li><a href="/html/about.do">About</a></li>
+                <!-- <li><a href="services.html">Services</a></li>
+             <li><a href="price.html">Price</a></li>
+             <li><a href="projects.html">Projects</a></li>
+             <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
+                 <ul class="dropdown-menu">
+                     <li><a href="sidebar-right.html">Right Sidebar</a></li>
+                     <li><a href="#">Dummy Link1</a></li>
+                     <li><a href="#">Dummy Link2</a></li>
+                     <li><a href="#">Dummy Link3</a></li>
+                 </ul>
+             </li>
+             <li><a href="contact.html">Contact</a></li> -->
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+<!-- /.navbar -->
+
+<header id="head" class="secondary">
+
+</header>
+<br />
+<!--chart-->
+<div id="container">
+    <h1 class="chart_title">VisitorChart</h1>
+    <br />
+    <hr class="layui-bg-black">
+    <br />
+    <br />
+    <br />
+    <!-- 所有地图数据详情见：https://img.hcharts.cn/mapdata/index.html -->
+    <!--<script src="https://img.hcharts.cn/mapdata/index.js"></script>-->
+    <!--<script src="https://img.hcharts.cn/libs/jquery-ui/jquery-ui.js"></script>-->
+    <!--<script src="https://img.hcharts.cn/static/common/jquery.combobox.js"></script>-->
+    <!--<link href="https://img.hcharts.cn/libs/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet">-->
+    <!--<link href="https://img.hcharts.cn/libs/font-awesome/css/font-awesome.css" rel="stylesheet">-->
+    <div id="demo-wrapper">
+        <div id="mapBox">
+            <div id="up"></div>
+            <div class="selector">
+                <button id="btn-prev-map" class="prev-next"><i class="fa fa-angle-left"></i></button>
+                <select id="mapDropdown" class="ui-widget combobox"></select>
+                <button id="btn-next-map" class="prev-next"><i class="fa fa-angle-right"></i></button>
+            </div>
+            <!--<script src="https://img.hcharts.cn/highmaps/highmaps.js"></script>-->
+            <!--<script src="http://img.hcharts.cn/mapdata/maps.js"></script>-->
+            <!--<script src="http://img.hcharts.cn/mapdata/custom/world.js"></script>-->
+            <div id="chart_vistor"></div>
+        </div>
+        <div id="sideBox">
+            <input type="checkbox" id="chkDataLabels" checked='checked' />
+            <label for="chkDataLabels" style="display: inline">显示数据标签</label>
+            <div id="infoBox">
+                <div id="download"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="top-margin">
+    <div class="footer2">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 panel">
+                    <div class="panel-body">
+                        <p class="simplenav">
+                            <a href="../../index.html">Home</a> |
+                            <a href="about.html">About</a> |
+                            <a href="services.html">Services</a> |
+                            <a href="price.html">Price</a> |
+                            <a href="projects.html">Projects</a> |
+                            <a href="contact.html">Contact</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 panel">
+                    <div class="panel-body">
+                        <p class="text-right">
+                            Copyright &copy; hit.quz <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">hit</a>
+                            <!-- - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> -->
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /row of panels -->
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+
+<script src="../../static/js/jquery-1.8.3.js"></script>
+
+
+
+<script src="../../static/js/fancybox/jquery.fancybox.pack.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script src="../../static/js/custom.js"></script>
+<!--<script type="text/javascript" src="../../static/js/webuploader/webuploader.js"></script>-->
+<!--<script type="text/javascript" src="../../static/js/webuploader/dowebupload.js"></script>-->
+<script src="../../static/modules/layui/layui.js"></script>
+<script src="../../static/js/Search.js"></script>
+<!--highmap-->
+<script src="../../static/modules/highmaps/highmaps.js"></script>
+<script src="../../static/js/chart.js"></script>
+
+</body>
+</html>
