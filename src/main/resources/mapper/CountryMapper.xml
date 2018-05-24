@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ICountryDao" >
+  <resultMap id="BaseResultMap" type="model.Country" >
+    <constructor >
+      <arg column="country_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="country_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="visitcount" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="downloadcount" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    country_id, country_name, visitcount, downloadcount
+  </sql>
+  <select id="GetVisitAndDownload" resultType="Country">
+    SELECT <include refid="Base_Column_List" />
+    FROM country
+  </select>
+  <update id="UpdateVisitorCount" parameterType="java.lang.String">
+    UPDATE country
+    SET visitcount = visitcount + 1
+    WHERE country_id = #{country_id}
+  </update>
+  <update id="UpdateDownloadCount" parameterType="java.lang.String">
+    UPDATE country
+    SET downloadcount = downloadcount + 1
+    WHERE country_id = #{country_id}
+  </update>
+  <!--<insert id="insert" parameterType="model.Country" >-->
+    <!--insert into country (country_id, country_name, visitcount, -->
+      <!--downloadcount)-->
+    <!--values (#{country_id,jdbcType=VARCHAR}, #{country_name,jdbcType=VARCHAR}, #{visitcount,jdbcType=BIGINT}, -->
+      <!--#{downloadcount,jdbcType=BIGINT})-->
+  <!--</insert>-->
+  <!--<insert id="insertSelective" parameterType="model.Country" >-->
+    <!--insert into country-->
+    <!--<trim prefix="(" suffix=")" suffixOverrides="," >-->
+      <!--<if test="country_id != null" >-->
+        <!--country_id,-->
+      <!--</if>-->
+      <!--<if test="country_name != null" >-->
+        <!--country_name,-->
+      <!--</if>-->
+      <!--<if test="visitcount != null" >-->
+        <!--visitcount,-->
+      <!--</if>-->
+      <!--<if test="downloadcount != null" >-->
+        <!--downloadcount,-->
+      <!--</if>-->
+    <!--</trim>-->
+    <!--<trim prefix="values (" suffix=")" suffixOverrides="," >-->
+      <!--<if test="country_id != null" >-->
+        <!--#{country_id,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="country_name != null" >-->
+        <!--#{country_name,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="visitcount != null" >-->
+        <!--#{visitcount,jdbcType=BIGINT},-->
+      <!--</if>-->
+      <!--<if test="downloadcount != null" >-->
+        <!--#{downloadcount,jdbcType=BIGINT},-->
+      <!--</if>-->
+    <!--</trim>-->
+  <!--</insert>-->
+</mapper>

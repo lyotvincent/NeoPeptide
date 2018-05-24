@@ -51,17 +51,38 @@ jQuery(document).ready(function ($) {
             });
         });
     }
-    //
+    //根据ip获取国家，加入访问者数据中
+    var ip = returnCitySN.cip;
     $.ajax( {
-        url: "http://ip.taobao.com/service/getIpInfo.php",
+        url: "http://api.map.baidu.com/location/ip",
         type: "GET",
-        dataType: 'json',
-        data:   {"ip": returnCitySN.cip},
+        dataType: 'jsonp',
+        data:   {
+            "ak":"F454f8a5efe5e577997931cc01de3974",
+            "ip": ip
+        },
         success: function(data){
-            var dt = data.data;
+            var str = data.address;
+            var country_id = str.slice(0,2);
+            AddVisitor(country_id);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
 
         }
     });
+
+    var AddVisitor = function (country_id) {
+        $.ajax({
+            url: "/Country/UpdateVisit.do",
+            type: "POST",
+            data:   {
+                "country_id":country_id
+            },
+            success: function(){
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        });
+    }
 });
+

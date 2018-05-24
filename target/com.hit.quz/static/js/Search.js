@@ -3,21 +3,24 @@ const total=13,no=12, cancer=11, gene=10, antigen=9, nucleicAcidExchange=8, amin
 Search_rownum = 1;
 var mainKey = '';
 function Search_mainSearch() {
-    $.ajax( {
-        url: "/Search/fuzzy_search_cancer.do",
-        type: "POST",
-        dataType: 'json',
-        data:   {"key": $("#Search_input_fuzzy").val()},
-        success: function(data){
-            mainKey = $("#Search_input_fuzzy").val();
-            $("#Search_table tbody").html("");
-            Search_SortData(data);
-            Search_CreatTable(data);
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
+    var strkey = $("#Search_input_fuzzy").val();
+    if(!(strkey == "" || strkey == null || strkey == undefined)){
+        $.ajax( {
+            url: "/Search/fuzzy_search_cancer.do",
+            type: "POST",
+            dataType: 'json',
+            data:   {"key": strkey},
+            success: function(data){
+                mainKey = $("#Search_input_fuzzy").val();
+                $("#Search_table tbody").html("");
+                Search_SortData(data);
+                Search_CreatTable(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
 
-        }
-    });
+            }
+        });
+    }
 }
 
 function Similar(para1,para2) {

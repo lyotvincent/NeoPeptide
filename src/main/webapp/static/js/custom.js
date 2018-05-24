@@ -52,13 +52,14 @@ jQuery(document).ready(function ($) {
         });
     }
     //根据ip获取国家，加入访问者数据中
+    var ip = returnCitySN.cip;
     $.ajax( {
         url: "http://api.map.baidu.com/location/ip",
         type: "GET",
         dataType: 'jsonp',
         data:   {
             "ak":"F454f8a5efe5e577997931cc01de3974",
-            "ip": returnCitySN.cip
+            "ip": ip
         },
         success: function(data){
             var str = data.address;
@@ -69,8 +70,19 @@ jQuery(document).ready(function ($) {
 
         }
     });
+
+    var AddVisitor = function (country_id) {
+        $.ajax({
+            url: "/Country/UpdateVisit.do",
+            type: "POST",
+            data:   {
+                "country_id":country_id
+            },
+            success: function(){
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        });
+    }
 });
 
-function AddVisitor(country_id) {
-
-}

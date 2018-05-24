@@ -116,7 +116,7 @@ div.search {
 .exact_search_btn{
     width: 100px;
 }
-.chart_vistor{
+.chart_vistor,.chart_download{
     height: 500px;
     min-width: 310px;
     max-width: 800px;

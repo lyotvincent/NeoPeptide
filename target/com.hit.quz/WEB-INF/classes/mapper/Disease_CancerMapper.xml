@@ -2,36 +2,48 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.ICancerDao">
   <resultMap id="BaseResultMap" type="model.Disease_Cancer">
-    <constructor>
-      <idArg column="No" javaType="java.lang.Long" jdbcType="BIGINT" />
-      <arg column="Cancer" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="Gene" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="Antigen" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="Nucleic acid exchange" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="Amino acid exchange" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="HLA Allele" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="Length" javaType="java.lang.Long" jdbcType="BIGINT" />
-      <arg column="Peptide" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="Adjuvant" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="Journal Ref" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PMID" javaType="java.lang.Long" jdbcType="BIGINT" />
-    </constructor>
+    <!--<constructor>-->
+      <!--<idArg column="No"  javaType="java.lang.Long" jdbcType="BIGINT" />-->
+      <!--<arg column="Cancer" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Gene" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Antigen" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Nucleic acid exchange" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Amino acid exchange" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="HLA Allele" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Length" javaType="java.lang.Long" jdbcType="BIGINT" />-->
+      <!--<arg column="Peptide" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Adjuvant" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="Journal Ref" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="PMID" javaType="java.lang.Long" jdbcType="BIGINT" />-->
+    <!--</constructor>-->
+    <result  column="No"  property="no"/>
+    <result  column="Cancer" property="cancer"/>
+    <result  column="Gene" property="gene" />
+    <result  column="Antigen" property="antigen" />
+    <result  column="Nucleic acid exchange" property="nucleicAcidExchange" />
+    <result  column="Amino acid exchange" property="aminoAcidExchange" />
+    <result  column="HLA Allele" property="hlaAllele"/>
+    <result  column="Length" property="length"/>
+    <result  column="Peptide" property="peptide"/>
+    <result  column="Adjuvant" property="adjuvant"/>
+    <result  column="Journal Ref" property="journalRef" />
+    <result  column="PMID" property="pmid" />
   </resultMap>
   <sql id="Base_Column_List">
     No, Cancer, Gene, Antigen, `Nucleic acid exchange`, `Amino acid exchange`, `HLA Allele`,
     Length, Peptide, Adjuvant, `Journal Ref`, PMID
   </sql>
-  <select id="Cancer_SelectByKey" parameterType="java.lang.String" resultType="Disease_Cancer">
+  <select id="Cancer_SelectByKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List" />
     FROM cancerdb WHERE CONCAT_ws('',<include refid="Base_Column_List" />) LIKE "%"#{key}"%"
   </select>
-  <select id="Cancer_SelectByNo" parameterType="java.lang.Long" resultType="Disease_Cancer">
+  <select id="Cancer_SelectByNo" parameterType="java.lang.Long" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List" />
     FROM cancerdb where No = #{no,jdbcType=BIGINT}
   </select>
-  <select id="Cancer_SelectBySql" parameterType="java.lang.String" resultType="Disease_Cancer">
+  <select id="Cancer_SelectBySql" parameterType="java.lang.String" resultMap="BaseResultMap">
     ${_parameter}
   </select>
   <!--<select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">-->
