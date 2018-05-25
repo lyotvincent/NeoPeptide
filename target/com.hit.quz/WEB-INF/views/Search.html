@@ -10,16 +10,18 @@
     <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
+    <!--layui-->
+    <link rel="stylesheet" type="text/css" href="../../static/modules/layui/css/layui.css">
     <!-- Custom styles for our template -->
     <link rel="stylesheet" href="../../static/css/bootstrap-theme.css" media="screen">
     <link rel="stylesheet" href="../../static/css/style.css">
     <!--web uploader-->
     <link rel="stylesheet" type="text/css" href="../../static/modules/webuploader/webuploader.css">
+
+    <link rel="stylesheet" type="text/css" href="../../static/js/fancybox/jquery.fancybox.css">
+
     <!--self-->
     <link rel="stylesheet" type="text/css" href="../../static/css/Search.css">
-    <link rel="stylesheet" type="text/css" href="../../static/js/fancybox/jquery.fancybox.css">
-    <!--layui-->
-    <link rel="stylesheet" type="text/css" href="../../static/modules/layui/css/layui.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="../../static/js/html5shiv.js"></script>
@@ -106,7 +108,7 @@
     <h1 class="fuzzy_search_title">Fuzzy Search</h1>
     <br />
     <div class="search bar" id="fuzzybar">
-        <form class="form_fuzzybar">
+        <form class="form_fuzzybar" onsubmit="return false;">
             <input id = "Search_input_fuzzy" type="text" placeholder="请输入您要搜索的内容...">
             <button id="Search_btn_fuzzy" type="button" onclick="Search_mainSearch()"></button>
         </form>

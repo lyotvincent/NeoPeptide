@@ -156,15 +156,22 @@ function Search_CreatTable(json_data){
 
 function Search_getDataRow(rowData){
     var row = document.createElement('tr'); //创建行
-    var AddRowFunc = function (ColumnName) {
+    var AddRowFunc = function (ColumnName,Ishref) {
+        //设置默认值
+        Ishref = arguments[1]?arguments[1]:false;
         var idCell = document.createElement('td'); //创建第一列id
         //idCell.innerHTML = eval('rowData.'+ColumnName); //填充数据
-        idCell.innerHTML = rowData[ColumnName]; //填充数据
+        if (Ishref){
+            idCell.innerHTML = "<a class='myhref' href='https://www.ncbi.nlm.nih.gov/search/?term="+ rowData[ColumnName] + "'>" + rowData[ColumnName] + "</a>";
+        }else{
+            idCell.innerHTML = rowData[ColumnName]; //填充数据
+        }
+
         row.appendChild(idCell); //加入行
     }
     AddRowFunc('no');
     AddRowFunc('cancer');
-    AddRowFunc('gene');
+    AddRowFunc('gene',true);
     AddRowFunc('antigen');
     AddRowFunc('nucleicAcidExchange');
     AddRowFunc('aminoAcidExchange');
@@ -292,7 +299,13 @@ function Search_exactSearch() {
     }
     ajax(ConvertData(GetDataFunc()));
 }
-
+//主搜索框绑定回车
+$("input[id=Search_input_fuzzy]").keypress(function(e){
+    var eCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+    if (eCode == 13){
+        Search_mainSearch();
+    }
+})
 layui.use('form', function(){
     var form = layui.form;
 
