@@ -89,7 +89,7 @@ function Search_SortData(json_data) {
         similarArr[antigen]=Similar(json_data[i].antigen,mainKey);
         similarArr[gene]=Similar(json_data[i].gene,mainKey);
         similarArr[cancer]=Similar(json_data[i].cancer,mainKey);
-        similarArr[no]=Similar(json_data[i].no,mainKey);
+        // similarArr[no]=Similar(json_data[i].no,mainKey);
         var maxsimilar = Math.max.apply(Math, similarArr);
         var index = similarArr.indexOf(maxsimilar);
         json_data[i].maxsimilar = maxsimilar;
@@ -169,20 +169,37 @@ function Search_getDataRow(rowData){
 
         row.appendChild(idCell); //加入行
     }
-    AddRowFunc('no');
-    AddRowFunc('cancer');
+    // AddRowFunc('no');
+    AddRowFunc('cancer',true);
     AddRowFunc('gene',true);
     AddRowFunc('antigen');
     AddRowFunc('nucleicAcidExchange');
     AddRowFunc('aminoAcidExchange');
-    AddRowFunc('hlaAllele');
+    AddRowFunc('hlaAllele',true);
     AddRowFunc('length');
-    AddRowFunc('peptide');
+    //peptide下划线处理
+    {
+        var pos = rowData['peptideUnderlinePos'];//下划线位置
+
+        if(pos == "" || pos == null || pos == undefined) {
+            AddRowFunc('peptide');
+        }else{
+            var idCell = document.createElement('td'); //创建第一列id
+
+            var str = rowData['peptide']; //填充数据
+            var strpre = str.slice(0, pos - 1);
+            var strunderline = str.slice(pos - 1, pos);
+            var strpost = str.slice(pos);
+            idCell.innerHTML = strpre + "<u>" + strunderline + "</u>" + strpost;
+            row.appendChild(idCell); //加入行
+        }
+    }
+    //AddRowFunc('peptide');
     AddRowFunc('adjuvant');
-    AddRowFunc('journalRef');
+    AddRowFunc('journalRef',true);
     AddRowFunc('pmid');
-    AddRowFunc('maxsimilar');
-    AddRowFunc('SimilarIndex');
+    // AddRowFunc('maxsimilar');
+    // AddRowFunc('SimilarIndex');
     return row; //返回tr数据
 }
 function  del(id) {

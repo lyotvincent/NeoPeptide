@@ -25,7 +25,10 @@ public class Disease_Cancer {
 
     private Long pmid;
 
-    public Disease_Cancer(Long no, String cancer, String gene, String antigen, String nucleicAcidExchange, String aminoAcidExchange, String hlaAllele, Long length, String peptide, String adjuvant, String journalRef, Long pmid) {
+    private int peptideUnderlinePos;
+
+    public Disease_Cancer(Long no, String cancer, String gene, String antigen, String nucleicAcidExchange, String aminoAcidExchange,
+                          String hlaAllele, Long length, String peptide, String adjuvant, String journalRef, Long pmid, int PeptideUnderlinePos) {
         this.no = no;
         this.cancer = cancer;
         this.gene = gene;
@@ -38,6 +41,7 @@ public class Disease_Cancer {
         this.adjuvant = adjuvant;
         this.journalRef = journalRef;
         this.pmid = pmid;
+        this.peptideUnderlinePos=PeptideUnderlinePos;
     }
 
     public Disease_Cancer() {
@@ -139,4 +143,8 @@ public class Disease_Cancer {
     public void setPmid(Long pmid) {
         this.pmid = pmid;
     }
+
+    public int getPeptideUnderlinePos() {return peptideUnderlinePos;}
+
+    public void setPeptideUnderlinePos(int PeptideUnderlinePos) {this.peptideUnderlinePos = PeptideUnderlinePos;}
 }
