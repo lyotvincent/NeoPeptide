@@ -5,13 +5,16 @@ html{
 body {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    /*height: 100%;*/
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     /*background: #494A5F;*/
-    background: #F0F0F0;
+    /*background: #F0F0F0;*/
     font-weight: 800;
     font-family: "Microsoft YaHei","宋体","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif, FreeSans, Arimo;
+    /*background-color: skyblue;*/
+
 }
 header{
     flex: 0 0 auto;
@@ -23,11 +26,11 @@ header{
     box-sizing: border-box;
 }
 #container {
-    flex: 1 0 auto;
-    width: 1000px;
-    /*height: auto;*/
+    flex: 1 1 auto;
+    width: 1100px;
+    height: 100%;
     margin: 0 auto;
-    padding-bottom:100px
+    /*padding-bottom:100px*/
 }
 div.search {
     padding: 30px 0;
@@ -111,7 +114,7 @@ div.search {
     width: 50px;
 }
 #exactbar{
-    display: none;
+    /*display: none;*/
 }
 .exact_search_btn{
     width: 100px;
@@ -127,10 +130,96 @@ div.search {
 .layui-table a{
     color:#428bca
 }
-/*a:link {color: #0000FF} !* 未访问的链接 *!*/
-/*a:visited {color: #FF0000} !* 已访问的链接 *!*/
 
-/*a:link {color: #FF0000} !* 未访问的链接 *!*/
-/*a:visited {color: #00FF00} !* 已访问的链接 *!*/
-/*a:hover {color: #FF00FF} !* 鼠标移动到链接上 *!*/
-/*a:active {color: #0000FF} !* 选定的链接 *!*/
+a:hover,a:focus{
+    outline: none;
+    text-decoration: none;
+}
+.tab .nav-tabs{
+    padding-left: 15px;
+    border-bottom: 4px solid #692f6c;
+}
+.tab .nav-tabs li a{
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background: #692f6c;
+    text-shadow: 1px 1px 2px #000;
+    border: none;
+    border-radius: 0;
+    opacity: 0.5;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+.tab .nav-tabs li a:hover{
+    background: #692f6c;
+    opacity: 0.8;
+}
+.tab .nav-tabs li.active a{
+    opacity: 1;
+}
+.tab .nav-tabs li.active a,
+.tab .nav-tabs li.active a:hover,
+.tab .nav-tabs li.active a:focus{
+    color: #fff;
+    background: #692f6c;
+    border: none;
+    border-radius: 0;
+}
+.tab .nav-tabs li a:before,
+.tab .nav-tabs li a:after{
+    content: "";
+    border-top: 42px solid transparent;
+    position: absolute;
+    top: -2px;
+}
+.tab .nav-tabs li a:before{
+    border-right: 15px solid #692f6c;
+    left: -15px;
+}
+.tab .nav-tabs li a:after{
+    border-left: 15px solid #692f6c;
+    right: -15px;
+}
+.tab .nav-tabs li a i,
+.tab .nav-tabs li.active a i{
+    display: inline-block;
+    padding-right: 5px;
+    font-size: 15px;
+    text-shadow: none;
+}
+.tab .nav-tabs li a span{
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: -9px;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+}
+.tab .nav-tabs li a:hover span,
+.tab .nav-tabs li.active a span{
+    letter-spacing: 1px;
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+}
+.tab .tab-content{
+    padding: 30px;
+    background: #fff;
+    font-size: 16px;
+    color: #6c6c6c;
+    line-height: 25px;
+}
+.tab .tab-content h3{
+    font-size: 24px;
+    margin-top: 0;
+}
+@media only screen and (max-width: 479px){
+    .tab .nav-tabs li{
+        width: 100%;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    .tab .nav-tabs li a span{
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+}

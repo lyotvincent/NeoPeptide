@@ -5,7 +5,9 @@ body {
 	font-weight: normal;
     color: #6E6E6E;
     font-size:15px;
-	background: #fff;
+	/*background: #fff;*/
+	background: linear-gradient(to bottom, skyblue, #F1FAFA); /* 标准的语法 */
+	background-attachment:fixed;
 }
 /*General*/
 h1, h2, h3, h4, h5, h6 {

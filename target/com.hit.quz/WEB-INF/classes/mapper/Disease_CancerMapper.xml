@@ -28,10 +28,11 @@
     <result  column="Adjuvant" property="adjuvant"/>
     <result  column="Journal Ref" property="journalRef" />
     <result  column="PMID" property="pmid" />
+    <result  column="PeptideUnderlinePos" property="peptideUnderlinePos"/>
   </resultMap>
   <sql id="Base_Column_List">
     No, Cancer, Gene, Antigen, `Nucleic acid exchange`, `Amino acid exchange`, `HLA Allele`,
-    Length, Peptide, Adjuvant, `Journal Ref`, PMID
+    Length, Peptide, PeptideUnderlinePos, Adjuvant, `Journal Ref`, PMID
   </sql>
   <select id="Cancer_SelectByKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     SELECT

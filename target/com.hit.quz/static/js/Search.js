@@ -3,6 +3,7 @@ const total=13,no=12, cancer=11, gene=10, antigen=9, nucleicAcidExchange=8, amin
 Search_rownum = 1;
 var mainKey = '';
 function Search_mainSearch() {
+    Search_CleanTbale();
     var strkey = $("#Search_input_fuzzy").val();
     if(!(strkey == "" || strkey == null || strkey == undefined)){
         $.ajax( {
@@ -12,7 +13,7 @@ function Search_mainSearch() {
             data:   {"key": strkey},
             success: function(data){
                 mainKey = $("#Search_input_fuzzy").val();
-                $("#Search_table tbody").html("");
+                // $("#Search_table tbody").html("");
                 Search_SortData(data);
                 Search_CreatTable(data);
             },
@@ -105,13 +106,6 @@ function Search_SortData(json_data) {
         }
     };
     json_data.sort(desc);
-    // json_data.sort(function (x,y) {
-    //     if (x.maxsimilar==y.maxsimilar){
-    //         return y.SimilarIndex - x.SimilarIndex;
-    //     }else {
-    //         y.maxsimilar-x.maxsimilar;
-    //     }
-    // })
     return json_data;
 }
 
@@ -125,32 +119,28 @@ function Search_CreatTable(json_data){
     //显示
     $(".Search_table_data").show();
     //如果需要分页就显示分页
-    if (json_data.length > 20){
-        $("#Search_jumpPagebar").show();
-        layui.use(['laypage', 'layer'], function() {
-            var laypage = layui.laypage
-                , layer = layui.layer;
-            laypage.render({
-                elem: 'Search_jumpPagebar'
-                ,count: json_data.length
-                ,limit:20
-                ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
-                ,jump: function(obj){
-                    var beginRow=(obj.curr-1)*obj.limit + 1;// 起始记录号
-                    var endRow = beginRow + obj.limit - 1;    // 末尾记录号
+    $("#Search_jumpPagebar").show();
+    layui.use(['laypage', 'layer'], function() {
+        var laypage = layui.laypage
+            , layer = layui.layer;
+        laypage.render({
+            elem: 'Search_jumpPagebar'
+            ,count: json_data.length
+            ,limit:20
+            ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+            ,jump: function(obj){
+                var beginRow=(obj.curr-1)*obj.limit + 1;// 起始记录号
+                var endRow = beginRow + obj.limit - 1;    // 末尾记录号
 
-                    $("#Search_table tr").hide();    // 首先，设置这行为隐藏
-                    $("#Search_table tr").each(function(i){    // 然后，通过条件判断决定本行是否恢复显示
-                        if((i>=beginRow && i<=endRow) || i==0 )//显示begin<=x<=end的记录
-                            $(this).show();
-                    });
-                }
-            });
+                $("#Search_table tr").hide();    // 首先，设置这行为隐藏
+                $("#Search_table tr").each(function(i){    // 然后，通过条件判断决定本行是否恢复显示
+                    if((i>=beginRow && i<=endRow) || i==0 )//显示begin<=x<=end的记录
+                        $(this).show();
+                });
+            }
         });
-    }
-    else{
-        $("#Search_jumpPagebar").hide();
-    }
+    });
+
 
 }
 
@@ -219,10 +209,17 @@ function Search_AddRow() {
         "                <div class=\"layui-inline Search_layui_inline_2\">"+
         "                    <form class=\"layui-form\" action=\"\">"+
         "                        <select name=\"Search_sel_Fields\" lay-verify=\"\" lay-search>"+
-        "                            <option value=\"No\" selected>No</option>"+
-        "                            <option value=\"Cancer\">Cancer</option>"+
+        "                            <option value=\"Cancer\" selected>Cancer</option>"+
         "                            <option value=\"Gene\">Gene</option>"+
-        "                            <option value=\"Pmid\">Pmid</option>"+
+        "                            <option value=\"Antigen\">Antigen</option>"+
+        "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
+        "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
+        "                            <option value=\"Hla Allele\">Hla Allele</option>"+
+        "                            <option value=\"Length\">Length</option>"+
+        "                            <option value=\"Peptide\">Peptide</option>"+
+        "                            <option value=\"Adjuvant\">Adjuvant</option>"+
+        "                            <option value=\"Journal Ref\">Journal Ref</option>"+
+        "                            <option value=\"PMID\">PMID</option>"+
         "                        </select>"+
         "                    </form>"+
         "                </div>"+
@@ -240,10 +237,6 @@ function Search_AddRow() {
 
     $('#exactbar_contend').append(html_bar);
 
-    // $("#Search_btn_delrow_"+Search_rownum).on("click",Search_rownum,function(id){
-    //     $("#Search_row_"+id).remove();
-    // })
-
     Search_rownum++;
     layui.use('form', function() {
         var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
@@ -251,14 +244,12 @@ function Search_AddRow() {
     });
 }
 
-function Search_ShowAdvanced() {
-    $("#exactbar").show();
-    $(".Search_table_data").hide();
-    $("#Search_btn_fuzzy").attr("disabled","disabled");
-    $("#Search_input_fuzzy").attr("disabled","disabled");
+function Search_CleanTbale() {
+    $("#Search_table tbody").html("");
 }
 
 function Search_exactSearch() {
+    Search_CleanTbale();
     //获取数据存入数组
     var GetDataFunc = function () {
         var data = new Array();
@@ -279,9 +270,9 @@ function Search_exactSearch() {
     }
     //根据数据拼写sql
     var ConvertData = function (data) {
-        var bIsFuzzy = false;
+        var bIsExact = false;
         var sql;
-        if (bIsFuzzy){//字段精确查询
+        if (bIsExact){//字段精确查询
             sql = "select * from cancerdb where " + data[0][0]+"="+"'"+data[0][1]+"'";
             for(var i in data) {
                 if(i>0){
@@ -289,10 +280,15 @@ function Search_exactSearch() {
                 }
             }
         }else{//字段模糊查询
-            sql = "select * from cancerdb where " + data[0][0]+" like "+"'%"+data[0][1]+"%'";
+            sql = "select * from cancerdb where " + '`'+data[0][0]+'`'+" like "+"'%"+data[0][1]+"%'";
             for(var i in data) {
                 if(i>0){
-                    sql+=" "+data[i][0]+" "+data[i][1]+" like "+"'%"+data[i][2]+"%'";
+                    if (data[i][0] == "NOT"){
+                        sql+=" AND "+'`'+data[i][1]+'`' +" NOT like "+"'%"+data[i][2]+"%'";
+                    }else{
+                        sql+=" "+data[i][0]+" "+'`'+data[i][1]+'`' +" like "+"'%"+data[i][2]+"%'";
+                    }
+
                 }
             }
         }
@@ -330,5 +326,13 @@ layui.use('form', function(){
     form.on('submit(formDemo)', function(data){
         layer.msg(JSON.stringify(data.field));
         return false;
+    });
+});
+layui.use('element', function(){
+    var element = layui.element;
+
+    //一些事件监听
+    element.on('tab(demo)', function(data){
+        console.log(data);
     });
 });

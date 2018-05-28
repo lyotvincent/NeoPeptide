@@ -102,64 +102,87 @@
         <!--</div>-->
     <!--</div>-->
 </header>
-<br />
+<br/>
 <!--Search搜索框-->
 <div id="container">
-    <h1 class="fuzzy_search_title">Fuzzy Search</h1>
-    <br />
-    <div class="search bar" id="fuzzybar">
-        <form class="form_fuzzybar" onsubmit="return false;">
-            <input id = "Search_input_fuzzy" type="text" placeholder="请输入您要搜索的内容...">
-            <button id="Search_btn_fuzzy" type="button" onclick="Search_mainSearch()"></button>
-        </form>
-    </div>
-    <ul>
-        <li>
-            <a href="#" onclick="Search_ShowAdvanced()">Advanced</a>
-            &nbsp;&nbsp;&nbsp;
-            <!--<a href="/Download/DownloadCancer.do">Download</a>-->
-        </li>
-    </ul>
-    <br />
-    <div class ="search bar" id="exactbar">
-        <h1 class="fexact_search_title">Exact Search</h1>
-        <br />
-        <div class="layui-form-item" id="exactbar_contend">
-            <div>
-                <div class="layui-inline Search_layui_inline_1">
-                </div>
-                <div class="layui-inline Search_layui_inline_2">
-                    <form class="layui-form" action="">
-                        <select name="Search_sel_Fields" lay-verify="" lay-search>
-                            <option value="No" selected>No</option>
-                            <option value="Cancer">Cancer</option>
-                            <option value="Gene">Gene</option>
-                            <option value="pmid">pmid</option>
-                        </select>
+    <!--<div class="row">-->
+    <!--<div class="col-md-offset-1 col-md-10">-->
+    <div class="tab" role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab"
+                                                      data-toggle="tab"><i
+                    class="fa fa-search"></i><span>FUZZY</span></a></li>
+            <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i
+                    class="fa fa-align-justify"></i><span>EXACT</span></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content tabs">
+            <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                <h1 class="fuzzy_search_title">Fuzzy Search</h1>
+                <!--<br />-->
+                <div class="search bar" id="fuzzybar">
+                    <form class="form_fuzzybar" onsubmit="return false;">
+                        <input id="Search_input_fuzzy" type="text" placeholder="请输入您要搜索的内容...">
+                        <button id="Search_btn_fuzzy" type="button" onclick="Search_mainSearch()"></button>
                     </form>
                 </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="Section2">
+                <div class="search bar" id="exactbar">
+                    <h1 class="fexact_search_title">Exact Search</h1>
+                    <!--<br/>-->
+                    <div class="layui-form-item" id="exactbar_contend">
+                        <div>
+                            <div class="layui-inline Search_layui_inline_1">
+                            </div>
+                            <div class="layui-inline Search_layui_inline_2">
+                                <form class="layui-form" action="">
+                                    <select name="Search_sel_Fields" lay-verify="" lay-search>
+                                        <option value="Cancer" selected>Cancer</option>
+                                        <option value="Gene">Gene</option>
+                                        <option value="Antigen">Antigen</option>
+                                        <option value="Nucleic acid exchange">Nucleic acid exchange</option>
+                                        <option value="Amino acid exchange">Amino acid exchange</option>
+                                        <option value="Hla Allele">Hla Allele</option>
+                                        <option value="Length">Length</option>
+                                        <option value="Peptide">Peptide</option>
+                                        <option value="Adjuvant">Adjuvant</option>
+                                        <option value="Journal Ref">Journal Ref</option>
+                                        <option value="PMID">PMID</option>
+                                    </select>
+                                </form>
+                            </div>
 
-                <div class="layui-inline Search_layui_inline_3">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input nput_exact_bar">
-                </div>
+                            <div class="layui-inline Search_layui_inline_3">
+                                <input type="text" name="title" required lay-verify="required"
+                                       placeholder="请输入标题" autocomplete="off"
+                                       class="layui-input nput_exact_bar">
+                            </div>
 
-                <div class="layui-inline Search_layui_inline_4">
-                    <div class="layui-btn-group">
-                        <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="Search_AddRow()">
-                            <i class="layui-icon">&#xe654;</i>
+                            <div class="layui-inline Search_layui_inline_4">
+                                <div class="layui-btn-group">
+                                    <button class="layui-btn layui-btn-primary layui-btn-sm"
+                                            onclick="Search_AddRow()">
+                                        <i class="layui-icon">&#xe654;</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal exact_search_btn"
+                                onclick="Search_exactSearch()">搜索
                         </button>
                     </div>
                 </div>
-             </div>
-
+            </div>
         </div>
-        <div>
-            <button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal exact_search_btn" onclick="Search_exactSearch()">搜索</button>
-        </div>
-
     </div>
 </div>
-<br />
+
+<!--data table-->
 <div class="Search_table_data">
     <table class="layui-table" lay-even="" lay-skin="row" id="Search_table">
         <colgroup>
@@ -186,10 +209,10 @@
         </tbody>
     </table>
 </div>
+<!--分页-->
 <div class="layui-tab-item Search_table_data">
     <div id="Search_jumpPagebar"></div>
 </div>
-<br/>
 <footer id="footer" class="top-margin">
     <div class="footer2">
         <div class="container">
