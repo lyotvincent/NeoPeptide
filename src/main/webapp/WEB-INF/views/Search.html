@@ -26,47 +26,46 @@
     <!--[if lt IE 9]>
     <script src="../../static/js/html5shiv.js"></script>
     <script src="../../static/js/respond.min.js"></script>
-
     <![endif]-->
-
 </head>
 
-<body>
+<body id="body">
 <!-- Fixed navbar -->
-<div id="header-top">
-    <!--  HEADER TOP -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
+<!--<div id="header-top">-->
+    <!--&lt;!&ndash;  HEADER TOP &ndash;&gt;-->
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-6">-->
 
-                <div class="text">
+                <!--<div class="text">-->
 
-                    <!-- <p>Phone:</p> -->
+                    <!--&lt;!&ndash; <p>Phone:</p> &ndash;&gt;-->
 
-                </div>
-            </div><!-- end -->
-            <div class="col-md-6">
-                <div class="social text-center pull-right">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-flickr"></i></a>
-                    <a href="#"><i class="fa fa-github"></i></a>
-                </div>
+                <!--</div>-->
+            <!--</div>&lt;!&ndash; end &ndash;&gt;-->
+            <!--<div class="col-md-6">-->
+                <!--<div class="social text-center pull-right">-->
+                    <!--<a href="#"><i class="fa fa-twitter"></i></a>-->
+                    <!--<a href="#"><i class="fa fa-facebook"></i></a>-->
+                    <!--<a href="#"><i class="fa fa-dribbble"></i></a>-->
+                    <!--<a href="#"><i class="fa fa-flickr"></i></a>-->
+                    <!--<a href="#"><i class="fa fa-github"></i></a>-->
+                <!--</div>-->
 
-            </div><!-- end -->
-        </div><!-- end .row -->
-    </div>
-</div>
+            <!--</div>&lt;!&ndash; end &ndash;&gt;-->
+        <!--</div>&lt;!&ndash; end .row &ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->
 <div class="navbar navbar-inverse">
     <div class="container">
-        <!--<div class="navbar-header">-->
-            <!--&lt;!&ndash; Button for smallest screens &ndash;&gt;-->
-            <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+        <div class="navbar-header">
+             <!--Button for smallest screens-->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <a class="navbar-brand" href="index.html">HIT-BIC<span>HIT Bioinformatics Services</span></a>
             <!--<a class="navbar-brand" href="../../index.html">-->
                 <!--<img src="../../static/imgs/logo.png" alt="Techro HTML5 template"></a>-->
-        <!--</div>-->
-        <div class="navbar-collapse collapse">
+        </div>
+        <div class="navbar-collapse collapse pull-right">
             <ul class="nav navbar-nav mainNav">
                 <li><a href="/html/index.do">Home</a></li>
                 <li class="active"><a href="/html/search.do">Search</a></li>
@@ -94,13 +93,13 @@
 <!-- /.navbar -->
 
 <header id="head" class="secondary">
-    <!--<div class="container">-->
-        <!--<div class="row">-->
-            <!--<div class="col-sm-8">-->
-                <!--<h1>Search</h1>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Search Data</h1>
+            </div>
+        </div>
+    </div>
 </header>
 <br/>
 <!--Search搜索框-->
@@ -112,25 +111,25 @@
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab"
                                                       data-toggle="tab"><i
-                    class="fa fa-search"></i><span>FUZZY</span></a></li>
+                    class="fa fa-search"></i><span>SEARCH</span></a></li>
             <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i
-                    class="fa fa-align-justify"></i><span>EXACT</span></a></li>
+                    class="fa fa-align-justify"></i><span>ADVANCE</span></a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content tabs">
             <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-                <h1 class="fuzzy_search_title">Fuzzy Search</h1>
+                <!--<h1 class="fuzzy_search_title">Fuzzy Search</h1>-->
                 <!--<br />-->
                 <div class="search bar" id="fuzzybar">
                     <form class="form_fuzzybar" onsubmit="return false;">
-                        <input id="Search_input_fuzzy" type="text" placeholder="请输入您要搜索的内容...">
+                        <input id="Search_input_fuzzy" type="text" placeholder="Input your keyword...">
                         <button id="Search_btn_fuzzy" type="button" onclick="Search_mainSearch()"></button>
                     </form>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="Section2">
                 <div class="search bar" id="exactbar">
-                    <h1 class="fexact_search_title">Exact Search</h1>
+                    <!--<h1 class="fexact_search_title">Exact Search</h1>-->
                     <!--<br/>-->
                     <div class="layui-form-item" id="exactbar_contend">
                         <div>
@@ -156,7 +155,7 @@
 
                             <div class="layui-inline Search_layui_inline_3">
                                 <input type="text" name="title" required lay-verify="required"
-                                       placeholder="请输入标题" autocomplete="off"
+                                       placeholder="Input your keyword..." autocomplete="off"
                                        class="layui-input nput_exact_bar">
                             </div>
 
@@ -173,7 +172,7 @@
                     </div>
                     <div>
                         <button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal exact_search_btn"
-                                onclick="Search_exactSearch()">搜索
+                                onclick="Search_exactSearch()">Search
                         </button>
                     </div>
                 </div>
@@ -214,6 +213,7 @@
     <div id="Search_jumpPagebar"></div>
 </div>
 <footer id="footer" class="top-margin">
+    <!--<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)" width="80%" color=#987cb9 SIZE=10>-->
     <div class="footer2">
         <div class="container">
             <div class="row">
@@ -221,12 +221,12 @@
                 <div class="col-md-6 panel">
                     <div class="panel-body">
                         <p class="simplenav">
-                            <a href="../../index.html">Home</a> |
-                            <a href="about.html">About</a> |
-                            <a href="services.html">Services</a> |
-                            <a href="price.html">Price</a> |
-                            <a href="projects.html">Projects</a> |
-                            <a href="contact.html">Contact</a>
+                            <a href="/html/index.do">Home</a> |
+                            <a href="/html/search.do">Search</a> |
+                            <a href="/html/download.do">Download</a> |
+                            <a href="/html/chart.do">Chart</a> |
+                            <a href="/html/about.do">About</a>
+
                         </p>
                     </div>
                 </div>
@@ -234,7 +234,7 @@
                 <div class="col-md-6 panel">
                     <div class="panel-body">
                         <p class="text-right">
-                            Copyright &copy; hit.quz <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">hit</a>
+                            Copyright &copy; <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">hit-bic</a>
                             <!-- - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> -->
                         </p>
                     </div>
@@ -250,6 +250,10 @@
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="../../static/js/jquery-1.8.3.js"></script>
+<!--buzyload-->
+<script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">
+
 <script src="../../static/js/fancybox/jquery.fancybox.pack.js"></script>
 <script src="../../static/js/bootstrap.min.js"></script>
 <script src="../../static/js/custom.js"></script>

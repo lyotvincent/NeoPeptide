@@ -2,7 +2,17 @@
 const total=13,no=12, cancer=11, gene=10, antigen=9, nucleicAcidExchange=8, aminoAcidExchange=7, hlaAllele=6, length=5, peptide=4, adjuvant=3,journalRef=2,pmid=1,placeholder=0;
 Search_rownum = 1;
 var mainKey = '';
+function ShowLoading(type) {
+    if (type == "show"){
+        $.busyLoadFull("show", {fontawesome: "fa fa-spinner fa-spin fa-3x fa-fw" });
+    }else if (type == "hide"){
+        $.busyLoadFull("hide");
+    }
+}
 function Search_mainSearch() {
+    //loading
+    ShowLoading("show");
+    //clean
     Search_CleanTbale();
     var strkey = $("#Search_input_fuzzy").val();
     if(!(strkey == "" || strkey == null || strkey == undefined)){
@@ -16,6 +26,7 @@ function Search_mainSearch() {
                 // $("#Search_table tbody").html("");
                 Search_SortData(data);
                 Search_CreatTable(data);
+                ShowLoading("hide");
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
 
@@ -249,6 +260,8 @@ function Search_CleanTbale() {
 }
 
 function Search_exactSearch() {
+    //loading
+    ShowLoading("show");
     Search_CleanTbale();
     //获取数据存入数组
     var GetDataFunc = function () {
@@ -305,6 +318,7 @@ function Search_exactSearch() {
             success: function(data){
                 $("#Search_div_table tbody").html("");
                 Search_CreatTable(data);
+                ShowLoading("hide");
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
             }

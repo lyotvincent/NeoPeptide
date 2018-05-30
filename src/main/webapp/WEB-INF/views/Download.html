@@ -12,14 +12,15 @@
     <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
     <!-- Custom styles for our template -->
     <link rel="stylesheet" href="../../static/css/bootstrap-theme.css" media="screen">
+    <!--layui-->
+    <link rel="stylesheet" type="text/css" href="../../static/modules/layui/css/layui.css">
     <link rel="stylesheet" href="../../static/css/style.css">
     <!--web uploader-->
     <link rel="stylesheet" type="text/css" href="../../static/modules/webuploader/webuploader.css">
     <!--self-->
     <link rel="stylesheet" type="text/css" href="../../static/css/Search.css">
     <link rel="stylesheet" type="text/css" href="../../static/js/fancybox/jquery.fancybox.css">
-    <!--layui-->
-    <link rel="stylesheet" type="text/css" href="../../static/modules/layui/css/layui.css">
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="../../static/js/html5shiv.js"></script>
@@ -58,13 +59,15 @@
 </div>
 <div class="navbar navbar-inverse">
     <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <a class="navbar-brand" href="index.html">HIT-BIC<span>HIT Bioinformatics Services</span></a>
         <!--<div class="navbar-header">-->
             <!--&lt;!&ndash; Button for smallest screens &ndash;&gt;-->
             <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
             <!--<a class="navbar-brand" href="../../index.html">-->
                 <!--<img src="../../static/imgs/logo.png" alt="Techro HTML5 template"></a>-->
         <!--</div>-->
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse pull-right">
             <ul class="nav navbar-nav mainNav">
                 <li><a href="/html/index.do">Home</a></li>
                 <li><a href="/html/search.do">Search</a></li>
@@ -92,13 +95,13 @@
 <!-- /.navbar -->
 
 <header id="head" class="secondary">
-    <!--<div class="container">-->
-        <!--<div class="row">-->
-            <!--<div class="col-sm-8">-->
-                <!--<h1>Search</h1>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Download File</h1>
+            </div>
+        </div>
+    </div>
 </header>
 <br />
 <!--Download下载框-->
@@ -125,12 +128,11 @@
                 <div class="col-md-6 panel">
                     <div class="panel-body">
                         <p class="simplenav">
-                            <a href="../../index.html">Home</a> |
-                            <a href="about.html">About</a> |
-                            <a href="services.html">Services</a> |
-                            <a href="price.html">Price</a> |
-                            <a href="projects.html">Projects</a> |
-                            <a href="contact.html">Contact</a>
+                            <a href="/html/index.do">Home</a> |
+                            <a href="/html/search.do">Search</a> |
+                            <a href="/html/download.do">Download</a> |
+                            <a href="/html/chart.do">Chart</a> |
+                            <a href="/html/about.do">About</a>
                         </p>
                     </div>
                 </div>
