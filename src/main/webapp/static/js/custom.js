@@ -52,7 +52,7 @@ jQuery(document).ready(function ($) {
         });
     }
     //根据ip获取国家，加入访问者数据中
-    var ip = returnCitySN.cip;
+     var ip = returnCitySN.cip;
     $.ajax( {
         url: "http://api.map.baidu.com/location/ip",
         type: "GET",

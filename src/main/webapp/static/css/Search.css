@@ -1,3 +1,6 @@
+:root {
+    --search-title-color: #7BA7AB;
+}
 html{
     height:100%;
     margin:0;
@@ -25,15 +28,12 @@ header{
 * {
     box-sizing: border-box;
 }
-#container {
-    flex: 1 1 auto;
-    width: 1100px;
-    height: 100%;
-    margin: 0 auto;
-    /*padding-bottom:100px*/
+
+#container .nav-tabs{
+    border: none;
 }
 div.search {
-    padding: 30px 0;
+    /*padding: 30px 0;*/
 }
 .form_fuzzybar {
     position: relative;
@@ -107,8 +107,14 @@ div.search {
 .Search_layui_inline_1{
     width: 100px;
 }
+.Search_layui_inline_2_firstline{
+    width: 416px;
+}
+.Search_layui_inline_2{
+    width: 300px;
+}
 .input_exact_bar,.Search_layui_inline_3{
-    width: 550px;
+    width: 750px;
 }
 .Search_layui_inline_4{
     width: 50px;
@@ -137,13 +143,13 @@ a:hover,a:focus{
 }
 .tab .nav-tabs{
     padding-left: 15px;
-    border-bottom: 4px solid #692f6c;
+    /*border-bottom: 1px solid var(--search-title-color);*/
 }
 .tab .nav-tabs li a{
     color: #fff;
     padding: 10px 20px;
     margin-right: 10px;
-    background: #692f6c;
+    background: var(--search-title-color);
     text-shadow: 1px 1px 2px #000;
     border: none;
     border-radius: 0;
@@ -152,7 +158,7 @@ a:hover,a:focus{
     transition: all 0.3s ease 0s;
 }
 .tab .nav-tabs li a:hover{
-    background: #692f6c;
+    background: var(--search-title-color);
     opacity: 0.8;
 }
 .tab .nav-tabs li.active a{
@@ -162,7 +168,7 @@ a:hover,a:focus{
 .tab .nav-tabs li.active a:hover,
 .tab .nav-tabs li.active a:focus{
     color: #fff;
-    background: #692f6c;
+    background: var(--search-title-color);
     border: none;
     border-radius: 0;
 }
@@ -174,11 +180,12 @@ a:hover,a:focus{
     top: -2px;
 }
 .tab .nav-tabs li a:before{
-    border-right: 15px solid #692f6c;
+    border-right: 15px solid var(--search-title-color);
     left: -15px;
+    border-bottom: 1px solid var(--search-title-color);
 }
 .tab .nav-tabs li a:after{
-    border-left: 15px solid #692f6c;
+    border-left: 15px solid var(--search-title-color);
     right: -15px;
 }
 .tab .nav-tabs li a i,
@@ -202,11 +209,15 @@ a:hover,a:focus{
     transition: all 0.3s ease 0s;
 }
 .tab .tab-content{
-    padding: 30px;
+    /*padding: 30px;*/
     background: #fff;
     font-size: 16px;
     color: #6c6c6c;
     line-height: 25px;
+    padding-right: 100px;
+    /*border-bottom:solid 4px var(--search-title-color);*/
+    /*border-left:solid 4px var(--search-title-color);*/
+    /*border-right:solid 4px var(--search-title-color);*/
 }
 .tab .tab-content h3{
     font-size: 24px;
@@ -229,4 +240,11 @@ a:hover,a:focus{
     -moz-filter:blur(3px);
     -ms-filter:blur(3px);
     -o-filter:blur(3px);
+}
+#container .span3{
+    width: 83px;
+    float: right;
+}
+#container .row-fluid{
+    width:1400px;
 }

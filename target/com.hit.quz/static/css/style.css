@@ -6,7 +6,7 @@ body {
 	font-weight: bolder;
     color: #6E6E6E;
     font-size:15px;
-	background: linear-gradient(to bottom,skyblue,#F1FAFA); /* 标准的语法 */
+	/*background: linear-gradient(to bottom,skyblue,#F1FAFA); !* 标准的语法 *!*/
 	background-attachment:fixed;
 }
 /*General*/
@@ -1011,6 +1011,20 @@ height:380px !important;
 height: 300px;
 min-height: 300px;
 padding-top: 0px;
-background: #181015 url(../../static/imgs/bg_header.jpg) -320px -145px no-repeat;
+/*background: #181015 url(../../static/imgs/bg_header.jpg) -320px -145px no-repeat;*/
 }
+}
+#container,.navbar .container {
+	flex: 1 1 auto;
+	width: 1400px;
+	height: 100%;
+	margin: 0 auto;
+	/*padding-bottom:100px*/
+}
+#container,.navbar .container {
+	flex: 1 1 auto;
+	width: 1400px;
+	height: 100%;
+	margin: 0 auto;
+	/*padding-bottom:100px*/
 }
