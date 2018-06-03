@@ -1,6 +1,6 @@
 //字段优先级
 // const total=13,no=12, cancer=11, gene=10, antigen=9, nucleicAcidExchange=8, aminoAcidExchange=7, hlaAllele=6, length=5, peptide=4, adjuvant=3,journalRef=2,pmid=1,placeholder=0;
-// Search_rownum = 1;
+ Search_rownum = 1;
 // var mainKey = '';
 function ShowLoading(type) {
     if (type == "show"){
@@ -320,15 +320,16 @@ function Search_exactSearch() {
 
         return sql;
     }
-
-    var sql = ConvertData(GetDataFunc());
+    var data = GetDataFunc();
+    var sql = ConvertData(data);
 
 
     if(!(sql == "" || sql == null || sql == undefined)) {
         //设置cookie
         var JsonParam = {
             type: "exact",
-            key: sql
+            key: sql,
+            data:data
         };
         var strParam = JSON.stringify(JsonParam);
         $.cookie('param',strParam);

@@ -9,8 +9,10 @@ if (CookieParam != null && CookieParam != undefined) {
     JsonParam = JSON.parse(CookieParam);
     if (JsonParam.type == "fuzzy"){
         Search_data_mainSearch();
+        $("#Search_input_fuzzy").val(JsonParam.key);
     }else if (JsonParam.type == "exact"){
         Search_data_exactSearch();
+        FillData(JsonParam.data);
     }
 }
 if ($("#success").is(":checked")==false){
@@ -31,7 +33,6 @@ function Search_data_mainSearch() {
     // Search_CleanTbale();
     var strkey = JsonParam.key;
     if(!(strkey == "" || strkey == null || strkey == undefined)){
-        $("#Search_input_fuzzy").val(strkey);
         $.ajax( {
             url: "/Search/fuzzy_search_cancer.do",
             type: "POST",
@@ -244,7 +245,31 @@ function Search_data_exactSearch() {
         }
     });
 }
-
+function FillData(data) {
+    for (var i=0;i<data.length-1;i++){
+        Search_data_AddRow();
+    }
+    var row=0,column=0;
+    $("#exactbar_contend").children().each(function () {
+        column=0
+        $(this).each(function () {
+            if (row==0){
+                $(this).find("select[name='Search_sel_Fields']").val(data[row][column++]);
+                $(this).find("input[name='title']").val(data[row][column++]);
+            }else{
+                $(this).find("select[name='Search_sel_Conjunction']").val(data[row][column++]);
+                $(this).find("select[name='Search_sel_Fields']").val(data[row][column++]);
+                $(this).find("input[name='title']").val(data[row][column++]);
+            }
+            // if ($(this).find("select[name='Search_sel_Conjunction']").val() != null){
+            //     data[row][column++]=$(this).find("select[name='Search_sel_Conjunction']").val();
+            // }
+            // data[row][column++]=$(this).find("select[name='Search_sel_Fields']").val();
+            // data[row][column++]=$(this).find("input[name='title']").val();
+        });
+        row++;
+    });
+}
 function Search_data_AddRow() {
     var html_bar ="  <div id='Search_row_"+Search_rownum+"' >"+
         "                <div class=\"layui-inline Search_layui_inline_1\">"+
