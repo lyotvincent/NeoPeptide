@@ -30,4 +30,7 @@ public class HtmlController {
     public String chart(){
         return "/chart";
     }
+
+    @RequestMapping("/search_data.do")
+    public String Search_data() { return  "/Search_data"; }
 }
