@@ -9,7 +9,8 @@
     <link rel="favicon" href="../../static/imgs/favicon.png">
     <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="../../static/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
     <!-- Custom styles for our template -->
     <link rel="stylesheet" href="../../static/css/bootstrap-theme.css" media="screen">
     <!--layui-->
@@ -20,7 +21,8 @@
     <!--self-->
     <link rel="stylesheet" type="text/css" href="../../static/css/Search.css">
     <link rel="stylesheet" type="text/css" href="../../static/js/fancybox/jquery.fancybox.css">
-
+    <!--buttons-->
+    <link rel="stylesheet" type="text/css" href="../../static/css/buttons.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="../../static/js/html5shiv.js"></script>
@@ -106,18 +108,20 @@
 <br />
 <!--Download下载框-->
 <div id="container">
-    <h1 class="download_title">Download</h1>
+    <h1 class="download_title">Download Section</h1>
+    <p>We offers a download page that allows users to download the experimentally supported disease associations.</p>
+    <p>The disease list can be downloaded from:</p>
     <br />
-    <hr class="layui-bg-black">
     <br />
-    <br />
-    <br />
-    <a class="download_link" href="/Download/DownloadCancer.do" onclick="Download_click()">Download Cancerdb.dbf</a>
-    <!--<ul>-->
-        <!--<li>-->
-            <!--<a href="">Advanced</a>-->
-        <!--</li>-->
-    <!--</ul>-->
+    <!--<a class="download_link" href="/Download/DownloadCancer.do" onclick="Download_click()">Download Cancerdb.dbf</a>-->
+
+    <ul>
+        <li>
+            <a href="/Download/DownloadCancer.do" class="button button-glow button-rounded button-raised button-primary" onclick="Download_click()">Cancerdb (.dbf)</a>
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="/Download/DownloadCancer.do" class="button button-glow button-rounded button-raised button-primary" onclick="Download_click()">Cancerdb (.xls)</a>
+        </li>
+    </ul>
 </div>
 
 <footer id="footer" class="top-margin">

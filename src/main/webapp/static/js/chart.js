@@ -104,11 +104,12 @@ function LoadChart(sqldata){
         Highcharts.mapChart('chart_vistor', {
             // $('#chart_vistor').highcharts('Map', {
             title : {
-                text : map.cname || map.name
+                // text : map.cname || map.name
+                text: "World, Visitor"
             },
-            subtitle : {
-                text : '地图数据： <a href="https://img.hcharts.cn/mapdata/index.html">'+map.name + '</a>'
-            },
+            // subtitle : {
+            //     text : '地图数据： <a href="https://img.hcharts.cn/mapdata/index.html">'+map.name + '</a>'
+            // },
             mapNavigation: {
                 enabled: true,
                 buttonOptions: {
@@ -169,11 +170,12 @@ function LoadChart(sqldata){
         Highcharts.mapChart('chart_download', {
             // $('#chart_vistor').highcharts('Map', {
             title : {
-                text : map.cname || map.name
+                //text : map.cname || map.name
+                text : "World, Downloader"
             },
-            subtitle : {
-                text : '地图数据： <a href="https://img.hcharts.cn/mapdata/index.html">'+map.name + '</a>'
-            },
+            // subtitle : {
+            //     text : '地图数据： <a href="https://img.hcharts.cn/mapdata/index.html">'+map.name + '</a>'
+            // },
             mapNavigation: {
                 enabled: true,
                 buttonOptions: {
