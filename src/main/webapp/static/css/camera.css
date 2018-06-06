@@ -97,14 +97,14 @@
 	z-index: 2;
 }
 .camera_target_content .camera_link {
-    background: url(static/imgs/blank.gif);
+    background: url(bic/static/imgs/blank.gif);
 	display: block;
 	height: 100%;
 	text-decoration: none;
 }
 .camera_loader {
-    background: #fff url(static/imgs/camera-loader.gif) no-repeat center;
-	background: rgba(255, 255, 255, 0.9) url(static/imgs/camera-loader.gif) no-repeat center;
+    background: #fff url(bic/static/imgs/camera-loader.gif) no-repeat center;
+	background: rgba(255, 255, 255, 0.9) url(bic/static/imgs/camera-loader.gif) no-repeat center;
 	border: 1px solid #ffffff;
 	-webkit-border-radius: 18px;
 	-moz-border-radius: 18px;
@@ -409,19 +409,19 @@
 	background: url(../images/patterns/overlay5.png) repeat;
 }
 .pattern_6 .camera_overlayer {
-	background: url(static/imgs/patterns/overlay6.png) repeat;
+	background: url(bic/static/imgs/patterns/overlay6.png) repeat;
 }
 .pattern_7 .camera_overlayer {
-	background: url(static/imgs/patterns/overlay7.png) repeat;
+	background: url(bic/static/imgs/patterns/overlay7.png) repeat;
 }
 .pattern_8 .camera_overlayer {
-	background: url(static/imgs/patterns/overlay8.png) repeat;
+	background: url(bic/static/imgs/patterns/overlay8.png) repeat;
 }
 .pattern_9 .camera_overlayer {
-	background: url(static/imgs/patterns/overlay9.png) repeat;
+	background: url(bic/static/imgs/patterns/overlay9.png) repeat;
 }
 .pattern_10 .camera_overlayer {
-	background: url(static/imgs/patterns/overlay10.png) repeat;
+	background: url(bic/static/imgs/patterns/overlay10.png) repeat;
 }
 .camera_caption {
 	color: #fff;

@@ -20,7 +20,7 @@ function Search_mainSearch() {
         var strParam = JSON.stringify(JsonParam);
         $.cookie('param',strParam);
         //跳转
-        window.location.href="/html/search_data.do";
+        window.location.href="/bic/html/search_data.do";
     }
     return;
     //loading
@@ -334,7 +334,7 @@ function Search_exactSearch() {
         var strParam = JSON.stringify(JsonParam);
         $.cookie('param',strParam);
         //跳转
-        window.location.href="/html/search_data.do";
+        window.location.href="/bic/html/search_data.do";
     }
     return;
 

@@ -34,7 +34,7 @@ function Search_data_mainSearch() {
     var strkey = JsonParam.key;
     if(!(strkey == "" || strkey == null || strkey == undefined)){
         $.ajax( {
-            url: "/Search/fuzzy_search_cancer.do",
+            url: "/bic/Search/fuzzy_search_cancer.do",
             type: "POST",
             dataType: 'json',
             data:   {"key": strkey},
@@ -231,7 +231,7 @@ function Search_data_exactSearch() {
     //loading
     ShowLoading("show");
     $.ajax( {
-        url: "/Search/exact_search_cancer.do",
+        url: "/bic/Search/exact_search_cancer.do",
         type: "POST",
         dataType: 'json',
         data:   {"key": JsonParam.key},

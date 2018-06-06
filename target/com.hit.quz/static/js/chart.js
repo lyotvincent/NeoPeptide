@@ -49,7 +49,7 @@ function getMapName(name) {
  * console.log(map)
  */
 $.ajax( {
-    url: "/Country/GetVisitAndDownload.do",
+    url: "/bic/Country/GetVisitAndDownload.do",
     type: "POST",
     dataType: 'json',
     // async:false,
@@ -74,7 +74,7 @@ $.ajax( {
 function LoadChart(sqldata){
     // 地图路径，参考 https://img.hcharts.cn/mapdata/index.html
     var map = getMapName('map');
-    var url = '../../static/modules/highmaps/world.js';
+    var url = '../../bic/static/modules/highmaps/world.js';
     // 动态加载地图数据文件并生成图表。
     loadScript(url, function(){
         // 获取数据

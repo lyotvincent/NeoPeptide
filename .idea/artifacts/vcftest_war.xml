@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="vcftest:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="com.hit.quz.war">
-      <element id="artifact" artifact-name="vcftest:war exploded" />
-    </root>
-  </artifact>
-</component>

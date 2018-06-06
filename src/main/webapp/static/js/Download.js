@@ -21,7 +21,7 @@ function Download_click() {
 
     var AddDownload = function (country_id) {
         $.ajax({
-            url: "/Country/UpdateDownload.do",
+            url: "/bic/Country/UpdateDownload.do",
             type: "POST",
             data:   {
                 "country_id":country_id

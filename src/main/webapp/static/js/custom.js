@@ -73,7 +73,7 @@ jQuery(document).ready(function ($) {
 
     var AddVisitor = function (country_id) {
         $.ajax({
-            url: "/Country/UpdateVisit.do",
+            url: "/bic/Country/UpdateVisit.do",
             type: "POST",
             data:   {
                 "country_id":country_id

@@ -11,10 +11,23 @@ import java.io.*;
 @Controller
 @RequestMapping("/Download")
 public class DownloadController {
-    @Value("#{projectProperties['filePath']}")
-    private String strfilepath;
-    @RequestMapping("/DownloadCancer.do")
-    public void downloadNet(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @Value("#{projectProperties['filePath_dbf']}")
+    private String strfilepath_dbf;
+
+    @Value("#{projectProperties['filePath_xlsx']}")
+    private String strfilepath_xlsx;
+
+    @RequestMapping("/Cancer_dbf.do")
+    public void downloaddbf(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        DownloadFile(response,strfilepath_dbf);
+    }
+
+    @RequestMapping("/Cancer_xlsx.do")
+    public void downloadxlsx(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        DownloadFile(response,strfilepath_xlsx);
+    }
+
+    public void DownloadFile(HttpServletResponse response, String strfilepath) throws Exception {
         try {
             String path = strfilepath;
             File file = new File(path);
