@@ -16,6 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1, .h1, h2, .h2, h3, .h3 {
 	margin-top: 30px;
+	margin-bottom: 10px;
 	color: #4B5C5C;
 }
 h2 {
@@ -849,7 +850,7 @@ nav#filter a.current {
 	color: #fff;
 }
 #head.secondary h1{
- height: 300px;
+ height: 200px;
     line-height: 390px;
     
  color: #fff;
@@ -1014,10 +1015,17 @@ padding-top: 0px;
 /*background: #181015 url(../../bic/static/imgs/bg_header.jpg) -320px -145px no-repeat;*/
 }
 }
-#container,.navbar .container {
+#container{
 	flex: 1 1 auto;
 	width: 1400px;
 	height: 100%;
 	margin: 0 auto;
+	padding-right: 15px;
+	padding-left: 15px;
 	/*padding-bottom:100px*/
+}
+.container {
+	width: 1400px;
+	height: 100%;
+	margin: 0 auto;
 }

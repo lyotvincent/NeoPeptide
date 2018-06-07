@@ -338,5 +338,7 @@ a:hover,a:focus{
     padding-right: 50px;
 }
 /*switch end*/
-
+#Search_jumpPagebar{
+    margin: 0 300px;
+}
 

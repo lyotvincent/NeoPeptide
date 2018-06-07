@@ -15,11 +15,11 @@ if (CookieParam != null && CookieParam != undefined) {
         FillData(JsonParam.data);
     }
 }
-if ($("#success").is(":checked")==false){
+if ($("#Search_data_switch").is(":checked")==false){
     $(".search_data_bar").hide();
 }
 $('.switch-box').click(function(e) {
-    if ($("#success").is(":checked")==true){
+    if ($("#Search_data_switch").is(":checked")==true){
         $(".search_data_bar").fadeIn();
     }else{
         $(".search_data_bar").fadeOut();
@@ -143,7 +143,7 @@ function Search_data_getDataRow(rowData){
     AddRowFunc('aminoAcidExchange');
     AddRowFunc('hlaAllele',true);
     AddRowFunc('length');
-    //peptide下划线处理
+    //peptide标红，下划线处理
     {
         var pos = rowData['peptideUnderlinePos'];//下划线位置
 
@@ -151,12 +151,11 @@ function Search_data_getDataRow(rowData){
             AddRowFunc('peptide');
         }else{
             var idCell = document.createElement('td'); //创建第一列id
-
             var str = rowData['peptide']; //填充数据
             var strpre = str.slice(0, pos - 1);
             var strunderline = str.slice(pos - 1, pos);
             var strpost = str.slice(pos);
-            idCell.innerHTML = strpre + "<u>" + strunderline + "</u>" + strpost;
+            idCell.innerHTML = strpre + "<span style=\"color: red;\"><u>" + strunderline + "</u></span>" + strpost;
             row.appendChild(idCell); //加入行
         }
     }
