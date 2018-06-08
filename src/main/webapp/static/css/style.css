@@ -113,7 +113,7 @@ padding: 10px 0 0;
 #head {
 	/*background: #181015 url( ../../bic/static/imgs/bg_header.jpg) no-repeat;*/
 	background-size: cover;
-	height: 600px;
+	height: 800px;
 	text-align: center;
 	color: rgb(13, 192, 192);
 	font-weight: 300;
@@ -844,7 +844,9 @@ nav#filter a.current {
 	padding-top: 0px;
 	/*background: #181015 url(../../bic/static/imgs/bg_header.jpg) 0px -145px no-repeat;*/
 	/*background: #f11d25;*/
-	background: #9DBF26;
+	/*background: linear-gradient(to bottom,skyblue,#F1FAFA); !* 标准的语法 *!*/
+	background: linear-gradient(50deg, rgb(87, 160, 255), rgb(81, 255, 182));
+	/*background: #9DBF26;*/
 	background-size: cover;
 	text-align: left; 
 	color: #fff;

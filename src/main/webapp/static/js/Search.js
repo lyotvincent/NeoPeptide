@@ -77,9 +77,6 @@ function Search_AddRow() {
     });
 }
 
-// function Search_CleanTbale() {
-//     $("#Search_table tbody").html("");
-// }
 
 function Search_exactSearch() {
     //loading
@@ -167,11 +164,28 @@ function Search_exactSearch() {
 }
 
 function Search_reset() {
+    //删除新增的行
     $("#exactbar_contend").children().each(function () {
-        if ($(this).attr('id') != null){
-            del($(this).attr('id'));
+        var strID = $(this).attr('id');
+        if (strID != null){
+            var id = strID.match(/\d+/);
+            del(id);
         }
     });
+    //重置原有表单
+    $("#exactbar_contend").children().each(function () {
+        $(this).each(function () {
+            $(this).find("select[name='Search_sel_Fields']").val("Cancer");
+            $(this).find("input[name='title']").val("");
+        });
+    });
+    $("#Search_input_fuzzy").val("");
+    //刷新
+    layui.use('form', function() {
+        var form = layui.form;
+        form.render();
+    });
+
 }
 //主搜索框绑定回车
 $("input[id=Search_input_fuzzy]").keypress(function(e){

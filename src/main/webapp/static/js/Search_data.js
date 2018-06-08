@@ -7,6 +7,7 @@ var JsonParam;
 var CookieParam = $.cookie('param');
 if (CookieParam != null && CookieParam != undefined) {
     JsonParam = JSON.parse(CookieParam);
+    Search_data_CleanTbale();
     if (JsonParam.type == "fuzzy"){
         Search_data_mainSearch();
         $("#Search_input_fuzzy").val(JsonParam.key);
@@ -319,4 +320,7 @@ function Search_data_AddRow() {
 }
 function  del(id) {
     $("#Search_row_"+id).remove();
+}
+function Search_data_CleanTbale() {
+    $("#Search_table tbody").html("");
 }
