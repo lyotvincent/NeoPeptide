@@ -107,6 +107,8 @@ function Search_data_CreatTable(json_data){
             ,count: json_data.length
             ,limit:20
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+            ,prev: 'prev'
+            ,next:'next'
             ,jump: function(obj){
                 var beginRow=(obj.curr-1)*obj.limit + 1;// 起始记录号
                 var endRow = beginRow + obj.limit - 1;    // 末尾记录号

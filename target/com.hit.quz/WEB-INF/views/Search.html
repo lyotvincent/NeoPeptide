@@ -62,7 +62,7 @@
         <div class="navbar-header">
              <!--Button for smallest screens-->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="index.html">HIT-BIC<span>HIT Bioinformatics Services</span></a>
+            <a class="navbar-brand" href="/bic/html/index.do">HIT-BIC<span>HIT Bioinformatics Services</span></a>
             <!--<a class="navbar-brand" href="../../index.html">-->
                 <!--<img src="../../bic/static/imgs/logo.png" alt="Techro HTML5 template"></a>-->
         </div>
@@ -102,8 +102,7 @@
         </div>
     </div>
 </header>
-<br/>
-
+<p><br><br></p>
 <!--Search搜索框-->
 <div id="container">
     <div class="tab" role="tabpanel">
@@ -171,9 +170,12 @@
 
                     </div>
                     <div>
-                        <button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal exact_search_btn pull-right"
-                                onclick="Search_exactSearch()">Search
-                        </button>
+                        <li>
+                            <button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal exact_search_btn pull-right"
+                                                      onclick="Search_exactSearch()">Search</button>
+                            <button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal exact_search_btn pull-right"
+                                    onclick="Search_reset()">Reset</button>
+                        </li>
                     </div>
                 </div>
             </div>

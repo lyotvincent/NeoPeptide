@@ -16,6 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1, .h1, h2, .h2, h3, .h3 {
 	margin-top: 30px;
+	margin-bottom: 10px;
 	color: #4B5C5C;
 }
 h2 {
@@ -112,7 +113,7 @@ padding: 10px 0 0;
 #head {
 	/*background: #181015 url( ../../bic/static/imgs/bg_header.jpg) no-repeat;*/
 	background-size: cover;
-	height: 600px;
+	height: 800px;
 	text-align: center;
 	color: rgb(13, 192, 192);
 	font-weight: 300;
@@ -843,13 +844,15 @@ nav#filter a.current {
 	padding-top: 0px;
 	/*background: #181015 url(../../bic/static/imgs/bg_header.jpg) 0px -145px no-repeat;*/
 	/*background: #f11d25;*/
-	background: #9DBF26;
+	/*background: linear-gradient(to bottom,skyblue,#F1FAFA); !* 标准的语法 *!*/
+	background: linear-gradient(50deg, rgb(87, 160, 255), rgb(81, 255, 182));
+	/*background: #9DBF26;*/
 	background-size: cover;
 	text-align: left; 
 	color: #fff;
 }
 #head.secondary h1{
- height: 300px;
+ height: 200px;
     line-height: 390px;
     
  color: #fff;
@@ -1014,10 +1017,17 @@ padding-top: 0px;
 /*background: #181015 url(../../bic/static/imgs/bg_header.jpg) -320px -145px no-repeat;*/
 }
 }
-#container,.navbar .container {
+#container{
 	flex: 1 1 auto;
 	width: 1400px;
 	height: 100%;
 	margin: 0 auto;
+	padding-right: 15px;
+	padding-left: 15px;
 	/*padding-bottom:100px*/
+}
+.container {
+	width: 1400px;
+	height: 100%;
+	margin: 0 auto;
 }

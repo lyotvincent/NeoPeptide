@@ -105,7 +105,7 @@ function LoadChart(sqldata){
             // $('#chart_vistor').highcharts('Map', {
             title : {
                 // text : map.cname || map.name
-                text: "World, Visitor"
+                text: "World, Views"
             },
             // subtitle : {
             //     text : '地图数据： <a href="https://img.hcharts.cn/mapdata/index.html">'+map.name + '</a>'
@@ -128,7 +128,7 @@ function LoadChart(sqldata){
                 data : data,
                 mapData: mapdata,
                 joinBy: 'hc-key',
-                 name: '访问人数',
+                 name: 'Views',
                 states: {
                     hover: {
                         color: '#a4edba'
@@ -171,7 +171,7 @@ function LoadChart(sqldata){
             // $('#chart_vistor').highcharts('Map', {
             title : {
                 //text : map.cname || map.name
-                text : "World, Downloader"
+                text : "World, Downloads"
             },
             // subtitle : {
             //     text : '地图数据： <a href="https://img.hcharts.cn/mapdata/index.html">'+map.name + '</a>'
@@ -194,7 +194,7 @@ function LoadChart(sqldata){
                 data : data,
                 mapData: mapdata,
                 joinBy: 'hc-key',
-                name: '下载人数',
+                name: 'Downloads',
                 states: {
                     hover: {
                         color: '#a4edba'

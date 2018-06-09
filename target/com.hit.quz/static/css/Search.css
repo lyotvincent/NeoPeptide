@@ -126,7 +126,7 @@ div.search {
 }
 .exact_search_btn{
     width: 100px;
-    margin-right: 58px;
+    margin-right: 20px;
 }
 .chart_vistor,.chart_download{
     height: 500px;
@@ -202,8 +202,9 @@ a:hover,a:focus{
 .tab .nav-tabs li a span{
     display: inline-block;
     font-size: 14px;
-    letter-spacing: -9px;
-    opacity: 0;
+    /*letter-spacing: -9px;*/
+    letter-spacing: 1px;
+    opacity: 1;
     transition: all 0.3s ease 0s;
 }
 .tab .nav-tabs li a:hover span,
@@ -254,7 +255,8 @@ a:hover,a:focus{
 }
 .search_data_bar{
     width: 1400px;
-    height: 100%;
+    /*height: 100%;*/
+    height: auto;
     margin: 0 auto;
 }
 
