@@ -9,6 +9,7 @@
     <link rel="favicon" href="../../bic/static/imgs/favicon.png">
     <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="../../bic/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
     <!--<link rel="stylesheet" href="../../bic/static/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
@@ -132,7 +133,7 @@
                 <!--<br />-->
                 <div class="search bar" id="fuzzybar">
                     <form class="form_fuzzybar" onsubmit="return false;">
-                        <input id="Search_input_fuzzy" type="text" placeholder="Input your keyword...">
+                        <input id="Search_input_fuzzy" type="text" placeholder="example：HLA-A*02:01...">
                         <button id="Search_btn_fuzzy" type="button" onclick="Search_mainSearch()"></button>
                     </form>
                 </div>
@@ -147,14 +148,14 @@
                             <!--</div>-->
                             <div class="layui-inline Search_layui_inline_2_firstline">
                                 <form class="layui-form" action="">
-                                    <select name="Search_sel_Fields" lay-verify="" lay-search>
+                                    <select name="Search_sel_Fields" lay-verify="" lay-search lay-filter="lay_Search_sel_Fields">
                                         <option value="Cancer" selected>Cancer</option>
                                         <option value="Gene">Gene</option>
                                         <!--<option value="Antigen">Antigen</option>-->
                                         <!--<option value="Nucleic acid exchange">Nucleic acid exchange</option>-->
                                         <!--<option value="Amino acid exchange">Amino acid exchange</option>-->
-                                        <option value="Hla Allele">Hla Allele</option>
-                                        <!--<option value="Length">Length</option>-->
+                                        <option value="Hla Allele">HLA Allele</option>
+                                        <option value="Length">Length</option>
                                         <option value="Peptide">Peptide</option>
                                         <!--<option value="Adjuvant">Adjuvant</option>-->
                                         <!--<option value="Journal Ref">Journal Ref</option>-->
@@ -166,14 +167,14 @@
                             <div class="layui-inline Search_layui_inline_3">
                                 <!--<input type="text" name="title" required lay-verify="required"-->
                                 <input type="text" name="title"
-                                       placeholder="Input your keyword..." autocomplete="off"
+                                       placeholder="example：HLA-A*02:01..." autocomplete="off"
                                        class="layui-input nput_exact_bar">
                             </div>
 
                             <div class="layui-inline Search_layui_inline_4">
                                 <div class="layui-btn-group">
                                     <button class="layui-btn layui-btn-primary layui-btn-sm"
-                                            onclick="Search_data_AddRow()">
+                                            onclick="Search_AddRow()">
                                         <i class="layui-icon">&#xe654;</i>
                                     </button>
                                 </div>
@@ -207,12 +208,12 @@
                 <th>Antigen</th>
                 <th>Nucleic Acid Exchange</th>
                 <th>Amino Acid Exchange</th>
-                <th>Hla Allele</th>
+                <th>HLA Allele</th>
                 <th>length</th>
                 <th>peptide</th>
                 <th>adjuvant</th>
                 <th>journalRef</th>
-                <th>pmid</th>
+                <!--<th>pmid</th>-->
             </tr>
             </thead>
             <tbody id="tbMain">
@@ -264,6 +265,7 @@
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="../../bic/static/js/jquery-1.8.3.js"></script>
 <script src="../../bic/static/js/jquery.cookie.js"></script>
+<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <!--buzyload-->
 <script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">
@@ -272,7 +274,8 @@
 <script src="../../bic/static/js/bootstrap.min.js"></script>
 
 <script src="../../bic/static/modules/layui/layui.js"></script>
-<script src="../../bic/static/js/Search_data.js"></script>
 <script src="../../bic/static/js/Search.js"></script>
+<script src="../../bic/static/js/Search_data.js"></script>
+
 </body>
 </html>

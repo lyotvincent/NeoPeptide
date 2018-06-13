@@ -2,6 +2,45 @@
 // const total=13,no=12, cancer=11, gene=10, antigen=9, nucleicAcidExchange=8, aminoAcidExchange=7, hlaAllele=6, length=5, peptide=4, adjuvant=3,journalRef=2,pmid=1,placeholder=0;
  Search_rownum = 1;
 // var mainKey = '';
+//主搜索框绑定回车
+$("input[id=Search_input_fuzzy]").keypress(function(e){
+    var eCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+    if (eCode == 13){
+        Search_mainSearch();
+    }
+})
+
+layui.use('form', function(){
+    var form = layui.form;
+
+    //监听提交
+    // form.on('submit(formDemo)', function(data){
+    //     layer.msg(JSON.stringify(data.field));
+    //     return false;
+    // });
+    //监听select
+    form.on('select(lay_Search_sel_Fields)', function(data){
+        if (data.value == "Hla Allele"){
+            //找到旁边的input 增加autocomplete
+            Search_bind_autocomplete(data.othis.parent().parent().parent().find("input[name='title']") ,true);
+        }else{
+            //下拉菜单不是Hla Allele 删除autocomplete
+            Search_bind_autocomplete(data.othis.parent().parent().parent().find("input[name='title']"),false);
+        }
+    });
+
+});
+layui.use('element', function(){
+    var element = layui.element;
+
+    //一些事件监听
+    // element.on('tab(demo)', function(data){
+    //     console.log(data);
+    // });
+});
+
+
+
 function ShowLoading(type) {
     if (type == "show"){
         $.busyLoadFull("show", {fontawesome: "fa fa-spinner fa-spin fa-3x fa-fw" });
@@ -47,8 +86,8 @@ function Search_AddRow() {
         // "                            <option value=\"Antigen\">Antigen</option>"+
         // "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
         // "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
-        "                            <option value=\"Hla Allele\">Hla Allele</option>"+
-        // "                            <option value=\"Length\">Length</option>"+
+        "                            <option value=\"Hla Allele\">HLA Allele</option>"+
+        "                            <option value=\"Length\">Length</option>"+
         "                            <option value=\"Peptide\">Peptide</option>"+
         // "                            <option value=\"Adjuvant\">Adjuvant</option>"+
         // "                            <option value=\"Journal Ref\">Journal Ref</option>"+
@@ -57,7 +96,7 @@ function Search_AddRow() {
         "                    </form>"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_3\">"+
-        "                    <input type=\"text\" name=\"title\" placeholder=\"Input your keyword...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
+        "                    <input type=\"text\" name=\"title\" placeholder=\"example：HLA-A*02:01...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_4\">"+
         "                    <div class=\"layui-btn-group\">"+
@@ -180,16 +219,6 @@ function Search_bind_autocomplete(node,isbind) {
                 "HLA-DPA1*01:03/DPB1*04:01",
                 "HLA-DPA1*01:03/DPB1*04:02"
             ];
-        // node.autocomplete({
-        //     source: selsource,
-        //     disabled:false
-        // }).focus(function () {
-        //     $(this).autocomplete({
-        //         source: selsource,
-        //         disabled:false
-        //     });
-        // });
-
         node.autocomplete({
             minLength: 0,
             source: selsource,
@@ -215,41 +244,3 @@ function Search_bind_autocomplete(node,isbind) {
         });
     }
 }
-//主搜索框绑定回车
-$("input[id=Search_input_fuzzy]").keypress(function(e){
-    var eCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
-    if (eCode == 13){
-        Search_mainSearch();
-    }
-})
-
-
-layui.use('form', function(){
-    var form = layui.form;
-
-    //监听提交
-    form.on('submit(formDemo)', function(data){
-        layer.msg(JSON.stringify(data.field));
-        return false;
-    });
-    //监听select
-    form.on('select(lay_Search_sel_Fields)', function(data){
-        if (data.value == "Hla Allele"){
-            Search_bind_autocomplete(data.othis.parent().parent().parent().find("input[name='title']") ,true);
-        }else{
-            Search_bind_autocomplete(data.othis.parent().parent().parent().find("input[name='title']"),false);
-        }
-        // console.log(data.elem); //得到select原始DOM对象
-        // console.log(data.value); //得到被选中的值
-        // console.log(data.othis); //得到美化后的DOM对象
-    });
-
-});
-layui.use('element', function(){
-    var element = layui.element;
-
-    //一些事件监听
-    element.on('tab(demo)', function(data){
-        console.log(data);
-    });
-});

@@ -174,7 +174,7 @@ function Search_data_getDataRow(rowData){
         idCell.innerHTML = "<a class='myhref' href='https://www.ncbi.nlm.nih.gov/pubmed/?term="+ rowData['pmid'] + "'>" + rowData['journalRef'] + "</a>";
         row.appendChild(idCell); //加入行
     }
-    AddRowFunc('pmid');
+    // AddRowFunc('pmid');
     // AddRowFunc('maxsimilar');
     // AddRowFunc('SimilarIndex');
     return row; //返回tr数据
@@ -258,7 +258,7 @@ function Search_data_exactSearch() {
 }
 function FillData(data) {
     for (var i=0;i<data.length-1;i++){
-        Search_data_AddRow();
+        Search_AddRow();
     }
     var row=0,column=0;
     $("#exactbar_contend").children().each(function () {
@@ -281,54 +281,54 @@ function FillData(data) {
         row++;
     });
 }
-function Search_data_AddRow() {
-    var html_bar ="  <div id='Search_row_"+Search_rownum+"' >"+
-        "                <div class=\"layui-inline Search_layui_inline_1\">"+
-        "                    <form class=\"layui-form\" action=\"\">"+
-        "                        <select name=\"Search_sel_Conjunction\" lay-verify=\"\" lay-search lay-filter=\"lay_Search_sel_Fields\">"+
-        "                            <option value=\"AND\" selected>AND</option>"+
-        "                            <option value=\"OR\">OR</option>"+
-        "                            <option value=\"NOT\">NOT</option>"+
-        "                        </select>"+
-        "                    </form>"+
-        "                 </div>"+
-        "                <div class=\"layui-inline Search_layui_inline_2\">"+
-        "                    <form class=\"layui-form\" action=\"\">"+
-        "                        <select name=\"Search_sel_Fields\" lay-verify=\"\" lay-search>"+
-        "                            <option value=\"Cancer\" selected>Cancer</option>"+
-        "                            <option value=\"Gene\">Gene</option>"+
-        // "                            <option value=\"Antigen\">Antigen</option>"+
-        // "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
-        // "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
-        "                            <option value=\"Hla Allele\">Hla Allele</option>"+
-        // "                            <option value=\"Length\">Length</option>"+
-        "                            <option value=\"Peptide\">Peptide</option>"+
-        // "                            <option value=\"Adjuvant\">Adjuvant</option>"+
-        // "                            <option value=\"Journal Ref\">Journal Ref</option>"+
-        // "                            <option value=\"PMID\">PMID</option>"+
-        "                        </select>"+
-        "                    </form>"+
-        "                </div>"+
-        "                <div class=\"layui-inline Search_layui_inline_3\">"+
-        "                    <input type=\"text\" name=\"title\" placeholder=\"Input your keyword...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
-        "                </div>"+
-        "                <div class=\"layui-inline Search_layui_inline_4\">"+
-        "                    <div class=\"layui-btn-group\">"+
-        "                        <button onclick='del("+Search_rownum+")' class=\"layui-btn layui-btn-primary layui-btn-sm\" id='Search_btn_delrow_"+Search_rownum+"'\">"+
-        "                            <i class=\"layui-icon\">&#xe640;</i>"+
-        "                        </button>"+
-        "                    </div>"+
-        "                </div>"+
-        "             </div>";
-
-    $('#exactbar_contend').append(html_bar);
-
-    Search_rownum++;
-    layui.use('form', function() {
-        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
-        form.render();
-    });
-}
+// function Search_data_AddRow() {
+//     var html_bar ="  <div id='Search_row_"+Search_rownum+"' >"+
+//         "                <div class=\"layui-inline Search_layui_inline_1\">"+
+//         "                    <form class=\"layui-form\" action=\"\">"+
+//         "                        <select name=\"Search_sel_Conjunction\" lay-verify=\"\" lay-search>"+
+//         "                            <option value=\"AND\" selected>AND</option>"+
+//         "                            <option value=\"OR\">OR</option>"+
+//         "                            <option value=\"NOT\">NOT</option>"+
+//         "                        </select>"+
+//         "                    </form>"+
+//         "                 </div>"+
+//         "                <div class=\"layui-inline Search_layui_inline_2\">"+
+//         "                    <form class=\"layui-form\" action=\"\">"+
+//         "                        <select name=\"Search_sel_Fields\" lay-verify=\"\" lay-search lay-filter=\"lay_Search_sel_Fields\">"+
+//         "                            <option value=\"Cancer\" selected>Cancer</option>"+
+//         "                            <option value=\"Gene\">Gene</option>"+
+//         // "                            <option value=\"Antigen\">Antigen</option>"+
+//         // "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
+//         // "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
+//         "                            <option value=\"Hla Allele\">HLA Allele</option>"+
+//         "                            <option value=\"Length\">Length</option>"+
+//         "                            <option value=\"Peptide\">Peptide</option>"+
+//         // "                            <option value=\"Adjuvant\">Adjuvant</option>"+
+//         // "                            <option value=\"Journal Ref\">Journal Ref</option>"+
+//         // "                            <option value=\"PMID\">PMID</option>"+
+//         "                        </select>"+
+//         "                    </form>"+
+//         "                </div>"+
+//         "                <div class=\"layui-inline Search_layui_inline_3\">"+
+//         "                    <input type=\"text\" name=\"title\" placeholder=\"example：HLA-A*02:01...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
+//         "                </div>"+
+//         "                <div class=\"layui-inline Search_layui_inline_4\">"+
+//         "                    <div class=\"layui-btn-group\">"+
+//         "                        <button onclick='del("+Search_rownum+")' class=\"layui-btn layui-btn-primary layui-btn-sm\" id='Search_btn_delrow_"+Search_rownum+"'\">"+
+//         "                            <i class=\"layui-icon\">&#xe640;</i>"+
+//         "                        </button>"+
+//         "                    </div>"+
+//         "                </div>"+
+//         "             </div>";
+//
+//     $('#exactbar_contend').append(html_bar);
+//
+//     Search_rownum++;
+//     layui.use('form', function() {
+//         var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+//         form.render();
+//     });
+// }
 function  del(id) {
     $("#Search_row_"+id).remove();
 }
