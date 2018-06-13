@@ -11,9 +11,13 @@ if (CookieParam != null && CookieParam != undefined) {
     if (JsonParam.type == "fuzzy"){
         Search_data_mainSearch();
         $("#Search_input_fuzzy").val(JsonParam.key);
+        // $("#search_data_bar_tab_section1").trigger("click");
+        $("#search_data_bar_tab_section1").click();
     }else if (JsonParam.type == "exact"){
         Search_data_exactSearch();
         FillData(JsonParam.data);
+        // $("#search_data_bar_tab_section2").trigger("click");
+        $("#search_data_bar_tab_section2").click();
     }
 }
 if ($("#Search_data_switch").is(":checked")==false){
@@ -107,8 +111,8 @@ function Search_data_CreatTable(json_data){
             ,count: json_data.length
             ,limit:20
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
-            ,prev: 'prev'
-            ,next:'next'
+            ,prev: '<em>←</em>'
+            ,next:'<em>→</em>'
             ,jump: function(obj){
                 var beginRow=(obj.curr-1)*obj.limit + 1;// 起始记录号
                 var endRow = beginRow + obj.limit - 1;    // 末尾记录号
@@ -135,7 +139,6 @@ function Search_data_getDataRow(rowData){
         }else{
             idCell.innerHTML = rowData[ColumnName]; //填充数据
         }
-
         row.appendChild(idCell); //加入行
     }
     // AddRowFunc('no');
@@ -164,7 +167,13 @@ function Search_data_getDataRow(rowData){
     }
     //AddRowFunc('peptide');
     AddRowFunc('adjuvant');
-    AddRowFunc('journalRef',true);
+    // AddRowFunc('journalRef',true);
+    //journalRef 需要连接到pubmed，使用pmid定位比较方便
+    {
+        var idCell = document.createElement('td'); //创建第一列id
+        idCell.innerHTML = "<a class='myhref' href='https://www.ncbi.nlm.nih.gov/pubmed/?term="+ rowData['pmid'] + "'>" + rowData['journalRef'] + "</a>";
+        row.appendChild(idCell); //加入行
+    }
     AddRowFunc('pmid');
     // AddRowFunc('maxsimilar');
     // AddRowFunc('SimilarIndex');
@@ -276,7 +285,7 @@ function Search_data_AddRow() {
     var html_bar ="  <div id='Search_row_"+Search_rownum+"' >"+
         "                <div class=\"layui-inline Search_layui_inline_1\">"+
         "                    <form class=\"layui-form\" action=\"\">"+
-        "                        <select name=\"Search_sel_Conjunction\" lay-verify=\"\" lay-search>"+
+        "                        <select name=\"Search_sel_Conjunction\" lay-verify=\"\" lay-search lay-filter=\"lay_Search_sel_Fields\">"+
         "                            <option value=\"AND\" selected>AND</option>"+
         "                            <option value=\"OR\">OR</option>"+
         "                            <option value=\"NOT\">NOT</option>"+
@@ -288,20 +297,20 @@ function Search_data_AddRow() {
         "                        <select name=\"Search_sel_Fields\" lay-verify=\"\" lay-search>"+
         "                            <option value=\"Cancer\" selected>Cancer</option>"+
         "                            <option value=\"Gene\">Gene</option>"+
-        "                            <option value=\"Antigen\">Antigen</option>"+
-        "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
-        "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
+        // "                            <option value=\"Antigen\">Antigen</option>"+
+        // "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
+        // "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
         "                            <option value=\"Hla Allele\">Hla Allele</option>"+
-        "                            <option value=\"Length\">Length</option>"+
+        // "                            <option value=\"Length\">Length</option>"+
         "                            <option value=\"Peptide\">Peptide</option>"+
-        "                            <option value=\"Adjuvant\">Adjuvant</option>"+
-        "                            <option value=\"Journal Ref\">Journal Ref</option>"+
-        "                            <option value=\"PMID\">PMID</option>"+
+        // "                            <option value=\"Adjuvant\">Adjuvant</option>"+
+        // "                            <option value=\"Journal Ref\">Journal Ref</option>"+
+        // "                            <option value=\"PMID\">PMID</option>"+
         "                        </select>"+
         "                    </form>"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_3\">"+
-        "                    <input type=\"text\" name=\"title\" required lay-verify=\"required\" placeholder=\"Input your keyword...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
+        "                    <input type=\"text\" name=\"title\" placeholder=\"Input your keyword...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_4\">"+
         "                    <div class=\"layui-btn-group\">"+

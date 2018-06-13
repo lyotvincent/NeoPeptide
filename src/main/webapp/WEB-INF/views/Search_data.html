@@ -118,11 +118,12 @@
     <div class="tab search_data_bar" role="tabpanel">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab"
-                                                      data-toggle="tab"><i
-                    class="fa fa-search"></i><span>SEARCH</span></a></li>
-            <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i
-                    class="fa fa-align-justify"></i><span>ADVANCE</span></a></li>
+            <li role="presentation" class="active">
+                <a id="search_data_bar_tab_section1" href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-search"></i><span>SEARCH</span></a>
+            </li>
+            <li role="presentation">
+                <a id="search_data_bar_tab_section2" href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i><span>ADVANCE</span></a>
+            </li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content tabs">
@@ -149,21 +150,22 @@
                                     <select name="Search_sel_Fields" lay-verify="" lay-search>
                                         <option value="Cancer" selected>Cancer</option>
                                         <option value="Gene">Gene</option>
-                                        <option value="Antigen">Antigen</option>
-                                        <option value="Nucleic acid exchange">Nucleic acid exchange</option>
-                                        <option value="Amino acid exchange">Amino acid exchange</option>
+                                        <!--<option value="Antigen">Antigen</option>-->
+                                        <!--<option value="Nucleic acid exchange">Nucleic acid exchange</option>-->
+                                        <!--<option value="Amino acid exchange">Amino acid exchange</option>-->
                                         <option value="Hla Allele">Hla Allele</option>
-                                        <option value="Length">Length</option>
+                                        <!--<option value="Length">Length</option>-->
                                         <option value="Peptide">Peptide</option>
-                                        <option value="Adjuvant">Adjuvant</option>
-                                        <option value="Journal Ref">Journal Ref</option>
-                                        <option value="PMID">PMID</option>
+                                        <!--<option value="Adjuvant">Adjuvant</option>-->
+                                        <!--<option value="Journal Ref">Journal Ref</option>-->
+                                        <!--<option value="PMID">PMID</option>-->
                                     </select>
                                 </form>
                             </div>
 
                             <div class="layui-inline Search_layui_inline_3">
-                                <input type="text" name="title" required lay-verify="required"
+                                <!--<input type="text" name="title" required lay-verify="required"-->
+                                <input type="text" name="title"
                                        placeholder="Input your keyword..." autocomplete="off"
                                        class="layui-input nput_exact_bar">
                             </div>
@@ -194,8 +196,8 @@
     <div class="Search_table_data"  >
         <table class="layui-table" lay-even="" lay-skin="row" id="Search_table">
             <colgroup>
-                <col width="100">
                 <col>
+                <!--<col>-->
             </colgroup>
             <thead>
             <tr>

@@ -104,7 +104,7 @@ function Search_exactSearch() {
     var ConvertData = function (data) {
         var bIsExact = false;
         var sql;
-        if (data == null)       return;
+        if (data[0][1] == "" ||  data[0][1] == null)       return;
         if (bIsExact){//字段精确查询
             sql = "select * from cancerdb where " + data[0][0]+"="+"'"+data[0][1]+"'";
             for(var i in data) {

@@ -41,23 +41,23 @@ function Search_AddRow() {
         "                 </div>"+
         "                <div class=\"layui-inline Search_layui_inline_2\">"+
         "                    <form class=\"layui-form\" action=\"\">"+
-        "                        <select name=\"Search_sel_Fields\" lay-verify=\"\" lay-search>"+
+        "                        <select name=\"Search_sel_Fields\" lay-verify=\"\" lay-search lay-filter=\"lay_Search_sel_Fields\">"+
         "                            <option value=\"Cancer\" selected>Cancer</option>"+
         "                            <option value=\"Gene\">Gene</option>"+
-        "                            <option value=\"Antigen\">Antigen</option>"+
-        "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
-        "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
+        // "                            <option value=\"Antigen\">Antigen</option>"+
+        // "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
+        // "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
         "                            <option value=\"Hla Allele\">Hla Allele</option>"+
-        "                            <option value=\"Length\">Length</option>"+
+        // "                            <option value=\"Length\">Length</option>"+
         "                            <option value=\"Peptide\">Peptide</option>"+
-        "                            <option value=\"Adjuvant\">Adjuvant</option>"+
-        "                            <option value=\"Journal Ref\">Journal Ref</option>"+
-        "                            <option value=\"PMID\">PMID</option>"+
+        // "                            <option value=\"Adjuvant\">Adjuvant</option>"+
+        // "                            <option value=\"Journal Ref\">Journal Ref</option>"+
+        // "                            <option value=\"PMID\">PMID</option>"+
         "                        </select>"+
         "                    </form>"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_3\">"+
-        "                    <input type=\"text\" name=\"title\" required lay-verify=\"required\" placeholder=\"Input your keyword...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
+        "                    <input type=\"text\" name=\"title\" placeholder=\"Input your keyword...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_4\">"+
         "                    <div class=\"layui-btn-group\">"+
@@ -104,7 +104,7 @@ function Search_exactSearch() {
     var ConvertData = function (data) {
         var bIsExact = false;
         var sql;
-        if (data == null)       return;
+        if (data[0][1] == "" ||  data[0][1] == null)       return;
         if (bIsExact){//字段精确查询
             sql = "select * from cancerdb where " + data[0][0]+"="+"'"+data[0][1]+"'";
             for(var i in data) {
@@ -124,7 +124,6 @@ function Search_exactSearch() {
                 }
             }
         }
-
         return sql;
     }
     var data = GetDataFunc();
@@ -143,24 +142,6 @@ function Search_exactSearch() {
         //跳转
         window.location.href="/bic/html/search_data.do";
     }
-    return;
-
-    // var ajax = function (sql) {
-    //     $.ajax( {
-    //         url: "/Search/exact_search_cancer.do",
-    //         type: "POST",
-    //         dataType: 'json',
-    //         data:   {"key": sql},
-    //         success: function(data){
-    //             $("#Search_div_table tbody").html("");
-    //             Search_CreatTable(data);
-    //             ShowLoading("hide");
-    //         },
-    //         error: function (XMLHttpRequest, textStatus, errorThrown) {
-    //         }
-    //     });
-    // }
-    // ajax(ConvertData(GetDataFunc()));
 }
 
 function Search_reset() {
@@ -185,7 +166,54 @@ function Search_reset() {
         var form = layui.form;
         form.render();
     });
+}
+//input绑定/解除 autocomplete
+function Search_bind_autocomplete(node,isbind) {
+    if (isbind){
+        var selsource = [
+                "HLA-A*26:01",
+                "HLA-B*40:02",
+                "HLA-C*03:04",
+                "NA",
+                "mICAM-1",
+                "HLA-A29:01",
+                "HLA-DPA1*01:03/DPB1*04:01",
+                "HLA-DPA1*01:03/DPB1*04:02"
+            ];
+        // node.autocomplete({
+        //     source: selsource,
+        //     disabled:false
+        // }).focus(function () {
+        //     $(this).autocomplete({
+        //         source: selsource,
+        //         disabled:false
+        //     });
+        // });
 
+        node.autocomplete({
+            minLength: 0,
+            source: selsource,
+            disabled:false,
+            focus :function () {
+                return false;
+            },
+            select: function(event, ui){
+                $this = $(this);
+                setTimeout(function () {
+                    $this.blur();
+                }, 1);
+            }
+        }).focus(function(){
+                $(this).autocomplete("search");
+                return false;
+            }
+        );
+
+    }else {
+        node.autocomplete({
+            disabled:true
+        });
+    }
 }
 //主搜索框绑定回车
 $("input[id=Search_input_fuzzy]").keypress(function(e){
@@ -194,6 +222,8 @@ $("input[id=Search_input_fuzzy]").keypress(function(e){
         Search_mainSearch();
     }
 })
+
+
 layui.use('form', function(){
     var form = layui.form;
 
@@ -202,6 +232,18 @@ layui.use('form', function(){
         layer.msg(JSON.stringify(data.field));
         return false;
     });
+    //监听select
+    form.on('select(lay_Search_sel_Fields)', function(data){
+        if (data.value == "Hla Allele"){
+            Search_bind_autocomplete(data.othis.parent().parent().parent().find("input[name='title']") ,true);
+        }else{
+            Search_bind_autocomplete(data.othis.parent().parent().parent().find("input[name='title']"),false);
+        }
+        // console.log(data.elem); //得到select原始DOM对象
+        // console.log(data.value); //得到被选中的值
+        // console.log(data.othis); //得到美化后的DOM对象
+    });
+
 });
 layui.use('element', function(){
     var element = layui.element;
