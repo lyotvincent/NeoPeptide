@@ -37,6 +37,10 @@ layui.use('form', function(){
             form.render();
         });
     });
+
+    form.on('submit(contact_submit)', function(data){
+        contact_SendMessage();
+    });
 });
 layui.use('element', function(){
     var element = layui.element;
