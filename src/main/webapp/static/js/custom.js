@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
         interval: 4000,
     });
     // fancybox
-    $(".fancybox").fancybox();
+    // $(".fancybox").fancybox();
     //isotope
     if ($('.isotopeWrapper').length) {
         var $container = $('.isotopeWrapper');
@@ -51,26 +51,6 @@ jQuery(document).ready(function ($) {
             });
         });
     }
-    //根据ip获取国家，加入访问者数据中
-     var ip = returnCitySN.cip;
-    $.ajax( {
-        url: "http://api.map.baidu.com/location/ip",
-        type: "GET",
-        dataType: 'jsonp',
-        data:   {
-            "ak":"F454f8a5efe5e577997931cc01de3974",
-            "ip": ip
-        },
-        success: function(data){
-            var str = data.address;
-            var country_id = str.slice(0,2);
-            AddVisitor(country_id);
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-
-        }
-    });
-
     var AddVisitor = function (country_id) {
         $.ajax({
             url: "/bic/Country/UpdateVisit.do",
@@ -81,6 +61,36 @@ jQuery(document).ready(function ($) {
             success: function(){
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        });
+    }
+    //有cookie，说明访问过，不需要添加
+    var ViewsPosCookie= $.cookie('ViewsPos');
+    if (!(ViewsPosCookie != null && ViewsPosCookie != undefined)) {
+        //根据ip获取国家，加入访问者数据中
+        var ip = returnCitySN.cip;
+        $.ajax( {
+            url: "http://api.map.baidu.com/location/ip",
+            type: "GET",
+            dataType: 'jsonp',
+            data:   {
+                "ak":"F454f8a5efe5e577997931cc01de3974",
+                "ip": ip
+            },
+            success: function(data){
+                var str = data.address;
+                var country_id = str.slice(0,2);
+                AddVisitor(country_id);
+                //设置cookie
+                var JsonParam = {
+                    ip: ip,
+                    country_id: country_id
+                };
+                var ViewsPos = JSON.stringify(JsonParam);
+                $.cookie('ViewsPos',ViewsPos,{ expires: 1 });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
             }
         });
     }

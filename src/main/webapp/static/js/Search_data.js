@@ -310,7 +310,7 @@ function FillData(data) {
 //         "                    </form>"+
 //         "                </div>"+
 //         "                <div class=\"layui-inline Search_layui_inline_3\">"+
-//         "                    <input type=\"text\" name=\"title\" placeholder=\"example：HLA-A*02:01...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
+//         "                    <input type=\"text\" name=\"title\" placeholder=\"input your keyword\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
 //         "                </div>"+
 //         "                <div class=\"layui-inline Search_layui_inline_4\">"+
 //         "                    <div class=\"layui-btn-group\">"+

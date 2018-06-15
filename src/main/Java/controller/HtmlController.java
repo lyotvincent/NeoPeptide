@@ -33,4 +33,7 @@ public class HtmlController {
 
     @RequestMapping("/search_data.do")
     public String Search_data() { return  "/Search_data"; }
+
+    @RequestMapping("/contact.do")
+    public String Contact() { return  "/contact"; }
 }

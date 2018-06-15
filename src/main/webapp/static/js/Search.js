@@ -20,15 +20,23 @@ layui.use('form', function(){
     // });
     //监听select
     form.on('select(lay_Search_sel_Fields)', function(data){
+        var input = data.othis.parent().parent().parent().find("input[name='title']");
         if (data.value == "Hla Allele"){
             //找到旁边的input 增加autocomplete
-            Search_bind_autocomplete(data.othis.parent().parent().parent().find("input[name='title']") ,true);
+            Search_bind_autocomplete(input ,true);
+            //修改默认的提示信息
+            Search_ModifyDefaultWord(input,"example：HLA-A*02:01");
         }else{
             //下拉菜单不是Hla Allele 删除autocomplete
-            Search_bind_autocomplete(data.othis.parent().parent().parent().find("input[name='title']"),false);
+            Search_bind_autocomplete(input,false);
+            //修改默认的提示信息
+            Search_ModifyDefaultWord(input,"input your keyword");
         }
+        layui.use('form', function() {
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+            form.render();
+        });
     });
-
 });
 layui.use('element', function(){
     var element = layui.element;
@@ -39,7 +47,9 @@ layui.use('element', function(){
     // });
 });
 
-
+function Search_ModifyDefaultWord(selector,defalutWord) {
+    selector.attr('placeholder',defalutWord);
+}
 
 function ShowLoading(type) {
     if (type == "show"){
@@ -96,7 +106,7 @@ function Search_AddRow() {
         "                    </form>"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_3\">"+
-        "                    <input type=\"text\" name=\"title\" placeholder=\"example：HLA-A*02:01...\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
+        "                    <input type=\"text\" name=\"title\" placeholder=\"input your keyword\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_4\">"+
         "                    <div class=\"layui-btn-group\">"+
