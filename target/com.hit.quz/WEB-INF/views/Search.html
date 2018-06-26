@@ -9,6 +9,8 @@
     <link rel="favicon" href="../../bic/static/imgs/favicon.png">
     <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="../../bic/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
     <!--<link rel="stylesheet" href="../../bic/static/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
     <!--layui-->
@@ -62,17 +64,18 @@
         <div class="navbar-header">
              <!--Button for smallest screens-->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="/bic/html/index.do">HIT-BIC<span>HIT Bioinformatics Services</span></a>
+            <a class="navbar-brand" href="/bic/html/index.do">NeoPeptide<span>HIT Bioinformatics Services</span></a>
             <!--<a class="navbar-brand" href="../../index.html">-->
                 <!--<img src="../../bic/static/imgs/logo.png" alt="Techro HTML5 template"></a>-->
         </div>
         <div class="navbar-collapse collapse pull-right">
             <ul class="nav navbar-nav mainNav">
                 <li><a href="/bic/html/index.do">Home</a></li>
+                <li><a href="/bic/html/about.do">About</a></li>
                 <li class="active"><a href="/bic/html/search.do">Search</a></li>
                 <li><a href="/bic/html/download.do">Download</a></li>
-                <li><a href="/bic/html/chart.do">Chart</a></li>
-                <li><a href="/bic/html/about.do">About</a></li>
+                <li><a href="/bic/html/chart.do">Statistics</a></li>
+                <li><a href="/bic/html/contact.do">Contact</a></li>
                 <!-- <li><a href="services.html">Services</a></li>
              <li><a href="price.html">Price</a></li>
              <li><a href="projects.html">Projects</a></li>
@@ -112,7 +115,7 @@
                                                       data-toggle="tab"><i
                     class="fa fa-search"></i><span>SEARCH</span></a></li>
             <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i
-                    class="fa fa-align-justify"></i><span>ADVANCE</span></a></li>
+                    class="fa fa-align-justify"></i><span>ADVANCED</span></a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content tabs">
@@ -121,7 +124,7 @@
                 <!--<br />-->
                 <div class="search bar" id="fuzzybar">
                     <form class="form_fuzzybar" onsubmit="return false;">
-                        <input id="Search_input_fuzzy" type="text" placeholder="Input your keyword...">
+                        <input id="Search_input_fuzzy" type="text" placeholder="input your keyword">
                         <button id="Search_btn_fuzzy" type="button" onclick="Search_mainSearch()"></button>
                     </form>
                 </div>
@@ -136,26 +139,25 @@
                             <!--</div>-->
                             <div class="layui-inline Search_layui_inline_2_firstline">
                                 <form class="layui-form" action="">
-                                    <select name="Search_sel_Fields" lay-verify="" lay-search>
+                                    <select name="Search_sel_Fields" lay-verify="" lay-search lay-filter="lay_Search_sel_Fields">
                                         <option value="Cancer" selected>Cancer</option>
                                         <option value="Gene">Gene</option>
-                                        <option value="Antigen">Antigen</option>
-                                        <option value="Nucleic acid exchange">Nucleic acid exchange</option>
-                                        <option value="Amino acid exchange">Amino acid exchange</option>
-                                        <option value="Hla Allele">Hla Allele</option>
+                                        <!--<option value="Antigen">Antigen</option>-->
+                                        <!--<option value="Nucleic acid exchange">Nucleic acid exchange</option>-->
+                                        <!--<option value="Amino acid exchange">Amino acid exchange</option>-->
+                                        <option value="Hla Allele">HLA Allele</option>
                                         <option value="Length">Length</option>
                                         <option value="Peptide">Peptide</option>
-                                        <option value="Adjuvant">Adjuvant</option>
-                                        <option value="Journal Ref">Journal Ref</option>
-                                        <option value="PMID">PMID</option>
+                                        <!--<option value="Adjuvant">Adjuvant</option>-->
+                                        <!--<option value="Journal Ref">Journal Ref</option>-->
+                                        <!--<option value="PMID">PMID</option>-->
                                     </select>
                                 </form>
                             </div>
 
                             <div class="layui-inline Search_layui_inline_3">
-                                <input type="text" name="title" required lay-verify="required"
-                                       placeholder="Input your keyword..." autocomplete="off"
-                                       class="layui-input nput_exact_bar">
+                                <input type="text" name="title" placeholder="input your keyword" autocomplete="off" class="layui-input nput_exact_bar">
+                                <!--<input type="text" name="title" required lay-verify="required" placeholder="input your keyword" autocomplete="off" class="layui-input nput_exact_bar">-->
                             </div>
 
                             <div class="layui-inline Search_layui_inline_4">
@@ -224,10 +226,11 @@
                     <div class="panel-body">
                         <p class="simplenav">
                             <a href="/bic/html/index.do">Home</a> |
+                            <a href="/bic/html/about.do">About</a> |
                             <a href="/bic/html/search.do">Search</a> |
                             <a href="/bic/html/download.do">Download</a> |
-                            <a href="/bic/html/chart.do">Chart</a> |
-                            <a href="/bic/html/about.do">About</a>
+                            <a href="/bic/html/chart.do">Statistics</a> |
+                            <a href="/bic/html/contact.do">Contact</a>
 
                         </p>
                     </div>
@@ -236,7 +239,7 @@
                 <div class="col-md-6 panel">
                     <div class="panel-body">
                         <p class="text-right">
-                            Copyright &copy; <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">hit-bic</a>
+                            Copyright &copy; <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">Harbin Institute of Technology</a>
                             <!-- - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> -->
                         </p>
                     </div>
@@ -253,6 +256,7 @@
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="../../bic/static/js/jquery-1.8.3.js"></script>
 <script src="../../bic/static/js/jquery.cookie.js"></script>
+<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <!--buzyload-->
 <script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">

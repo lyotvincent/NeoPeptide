@@ -62,7 +62,7 @@
 <div class="navbar navbar-inverse">
     <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-        <a class="navbar-brand" href="/bic/html/index.do">HIT-BIC<span>HIT Bioinformatics Services</span></a>
+        <a class="navbar-brand" href="/bic/html/index.do">NeoPeptide<span>HIT Bioinformatics Services</span></a>
         <!--<div class="navbar-header">-->
             <!--&lt;!&ndash; Button for smallest screens &ndash;&gt;-->
             <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
@@ -72,10 +72,11 @@
         <div class="navbar-collapse collapse pull-right">
             <ul class="nav navbar-nav mainNav">
                 <li><a href="/bic/html/index.do">Home</a></li>
+                <li><a href="/bic/html/about.do">About</a></li>
                 <li><a href="/bic/html/search.do">Search</a></li>
                 <li class="active"><a href="/bic/html/download.do">Download</a></li>
-                <li><a href="/bic/html/chart.do">Chart</a></li>
-                <li><a href="/bic/html/about.do">About</a></li>
+                <li><a href="/bic/html/chart.do">Statistics</a></li>
+                <li><a href="/bic/html/contact.do">Contact</a></li>
                 <!-- <li><a href="services.html">Services</a></li>
              <li><a href="price.html">Price</a></li>
              <li><a href="projects.html">Projects</a></li>
@@ -113,15 +114,16 @@
     <p>The disease list can be downloaded from:</p>
     <br />
     <br />
-    <!--<a class="download_link" href="/Download/DownloadCancer.do" onclick="Download_click()">Download Cancerdb.dbf</a>-->
+    <li>
+        <a href="/bic/Download/Cancer_dbf.do" class="button button-glow button-rounded button-raised button-primary" onclick="Download_click()">Cancerdb (.dbf)</a>
+        &nbsp&nbsp&nbsp&nbsp&nbsp
+        <!--<a href="/bic/Download/Cancer_xlsx.do" class="button button-glow button-rounded button-raised button-primary" onclick="Download_click()">Cancerdb (.xlsx)</a>-->
+    </li>
+    <br />
+    <h3>What is .dbf?</h3>
+    <p>The .dbf file extension represents the dBase database file and this format is supported by a number of database products.</p>
+    <p>E.g. <a class="download_link" href="https://navicat.com/en">Navicat Import Wizard</a> allows you to import data to tables from dbf. </p>
 
-    <!--<ul>-->
-        <li>
-            <a href="/bic/Download/Cancer_dbf.do" class="button button-glow button-rounded button-raised button-primary" onclick="Download_click()">Cancerdb (.dbf)</a>
-            &nbsp&nbsp&nbsp&nbsp&nbsp
-            <a href="/bic/Download/Cancer_xlsx.do" class="button button-glow button-rounded button-raised button-primary" onclick="Download_click()">Cancerdb (.xlsx)</a>
-        </li>
-    <!--</ul>-->
 </div>
 
 <footer id="footer" class="top-margin">
@@ -133,10 +135,11 @@
                     <div class="panel-body">
                         <p class="simplenav">
                             <a href="/bic/html/index.do">Home</a> |
+                            <a href="/bic/html/about.do">About</a> |
                             <a href="/bic/html/search.do">Search</a> |
                             <a href="/bic/html/download.do">Download</a> |
-                            <a href="/bic/html/chart.do">Chart</a> |
-                            <a href="/bic/html/about.do">About</a>
+                            <a href="/bic/html/chart.do">Statistics</a> |
+                            <a href="/bic/html/contact.do">Contact</a>
                         </p>
                     </div>
                 </div>
@@ -144,7 +147,7 @@
                 <div class="col-md-6 panel">
                     <div class="panel-body">
                         <p class="text-right">
-                            Copyright &copy; <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">hit-bic</a>
+                            Copyright &copy; <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">Harbin Institute of Technology</a>
                             <!-- - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> -->
                         </p>
                     </div>

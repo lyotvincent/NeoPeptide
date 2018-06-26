@@ -147,37 +147,71 @@ function Search_data_getDataRow(rowData){
     AddRowFunc('antigen');
     AddRowFunc('nucleicAcidExchange');
     AddRowFunc('aminoAcidExchange');
-    AddRowFunc('hlaAllele',true);
+    AddRowFunc('hlaAllele');
     AddRowFunc('length');
+    //peptide标红，下划线处理
+    AddRow_Peptide(row,rowData);
+    // {
+    //     var pos = rowData['peptideUnderlinePos'];//下划线位置
+    //
+    //     if(pos == "" || pos == null || pos == undefined) {
+    //
+    //         http://www.syfpeithi.de/bin/MHCServer.dll/EpitopePrediction?Motif=ALL&amers=0&SEQU=SYFPEITHI&DoIT=++Run++
+    //         AddRowFunc('peptide');
+    //     }else{
+    //         var idCell = document.createElement('td'); //创建第一列id
+    //         var str = rowData['peptide']; //填充数据
+    //         var strpre = str.slice(0, pos - 1);
+    //         var strunderline = str.slice(pos - 1, pos);
+    //         var strpost = str.slice(pos);
+    //         idCell.innerHTML = strpre + "<span style=\"color: red;\"><u>" + strunderline + "</u></span>" + strpost;
+    //         row.appendChild(idCell); //加入行
+    //     }
+    // }
+    //AddRowFunc('peptide');
+    AddRowFunc('adjuvant');
+    AddRow_JournalRef(row,rowData);
+    // AddRowFunc('journalRef',true);
+    //journalRef 需要连接到pubmed，使用pmid定位比较方便
+    // {
+    //     var idCell = document.createElement('td'); //创建第一列id
+    //     idCell.innerHTML = "<a class='myhref' href='https://www.ncbi.nlm.nih.gov/pubmed/?term="+ rowData['pmid'] + "'>" + rowData['journalRef'] + "</a>";
+    //     row.appendChild(idCell); //加入行
+    // }
+    // AddRowFunc('pmid');
+    // AddRowFunc('maxsimilar');
+    // AddRowFunc('SimilarIndex');
+    return row; //返回tr数据
+}
+
+function AddRow_Peptide(row,rowData) {
     //peptide标红，下划线处理
     {
         var pos = rowData['peptideUnderlinePos'];//下划线位置
 
         if(pos == "" || pos == null || pos == undefined) {
-            AddRowFunc('peptide');
+            var idCell = document.createElement('td'); //创建第一列id
+            idCell.innerHTML = "<a class='myhref' href='http://www.syfpeithi.de/bin/MHCServer.dll/EpitopePrediction?Motif=ALL&amers=0&SEQU="+rowData['peptide']+"&DoIT=++Run++'>"+rowData['peptide']+"</a>";
+            row.appendChild(idCell); //加入行
         }else{
             var idCell = document.createElement('td'); //创建第一列id
             var str = rowData['peptide']; //填充数据
             var strpre = str.slice(0, pos - 1);
             var strunderline = str.slice(pos - 1, pos);
             var strpost = str.slice(pos);
-            idCell.innerHTML = strpre + "<span style=\"color: red;\"><u>" + strunderline + "</u></span>" + strpost;
+            var myhtml = strpre + "<span style=\"color: red;\"><u>" + strunderline + "</u></span>" + strpost;
+            idCell.innerHTML = "<a class='myhref' href='http://www.syfpeithi.de/bin/MHCServer.dll/EpitopePrediction?Motif=ALL&amers=0&SEQU="+rowData['peptide']+"&DoIT=++Run++'>"+myhtml+"</a>";
             row.appendChild(idCell); //加入行
         }
     }
-    //AddRowFunc('peptide');
-    AddRowFunc('adjuvant');
-    // AddRowFunc('journalRef',true);
+}
+function AddRow_JournalRef(row,rowData) {
     //journalRef 需要连接到pubmed，使用pmid定位比较方便
     {
         var idCell = document.createElement('td'); //创建第一列id
         idCell.innerHTML = "<a class='myhref' href='https://www.ncbi.nlm.nih.gov/pubmed/?term="+ rowData['pmid'] + "'>" + rowData['journalRef'] + "</a>";
         row.appendChild(idCell); //加入行
     }
-    // AddRowFunc('pmid');
-    // AddRowFunc('maxsimilar');
-    // AddRowFunc('SimilarIndex');
-    return row; //返回tr数据
 }
 
 function Similar(para1,para2) {

@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="static/css/bootstrap-theme.css" media="screen">
 	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="static/css/Search.css">
     <link rel='stylesheet' id='camera-css'  href='static/css/camera.css' type='text/css' media='all'>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -47,7 +48,7 @@
 	<div class="navbar navbar-inverse">
 		<div class="container">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-			<a class="navbar-brand" href="/bic/html/index.do">HIT-BIC<span>HIT Bioinformatics Services</span></a>
+			<a class="navbar-brand" href="/bic/html/index.do">NeoPeptide<span>HIT Bioinformatics Services</span></a>
 			<!--<div class="navbar-header">-->
 				<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
 				<!--<a class="navbar-brand" href="index.html">-->
@@ -56,10 +57,11 @@
 			<div class="navbar-collapse collapse pull-right">
 				<ul class="nav navbar-nav mainNav">
 					<li class="active"><a href="/bic/html/index.do">Home</a></li>
+					<li><a href="/bic/html/about.do">About</a></li>
 					<li><a href="/bic/html/search.do">Search</a></li>
 					<li><a href="/bic/html/download.do">Download</a></li>
-					<li><a href="/bic/html/chart.do">Chart</a></li>
-					<li><a href="/bic/html/about.do">About</a></li>
+					<li><a href="/bic/html/chart.do">Statistics</a></li>
+					<li><a href="/bic/html/contact.do">Contact</a></li>
 					<!--li><a href="services.html">Services</a></li-->
 					<!--li><a href="price.html">Price</a></li-->
 					<!--li><a href="projects.html">Projects</a></li-->
@@ -103,7 +105,7 @@
 				<div class="row">
                 	<div class="col-sm-12">
                     	
-                        <h2 class="text-center text-uppercase last">Welcome to HIT-BIC </h2>
+                        <h2 class="text-center text-uppercase last">Welcome to NeoPeptide </h2>
                         
                         <p class="text-center last">The Harbin Institute of Technology Bioinformatics provides access to disease information.</p>
                         
@@ -118,7 +120,7 @@
 			<!---->
 			<!--<div class="row">-->
 			<!--<div class="section-heading">-->
-							<!--<h2>How to use HIT-BIC</h2>-->
+							<!--<h2>How to use NeoPeptide</h2>-->
 							<!--&lt;!&ndash;<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>&ndash;&gt;-->
 						<!--</div>-->
 				<!--<div class="col-md-4">-->
@@ -288,8 +290,9 @@
 								<a href="/bic/html/index.do">Home</a> |
 								<a href="/bic/html/search.do">Search</a> |
 								<a href="/bic/html/download.do">Download</a> |
-								<a href="/bic/html/chart.do">Chart</a> |
-								<a href="/bic/html/about.do">About</a>
+								<a href="/bic/html/chart.do">Statistics</a> |
+								<a href="/bic/html/about.do">About</a> |
+								<a href="/bic/html/contact.do">Contact</a>
 							</p>
 						</div>
 					</div>
@@ -297,7 +300,7 @@
 					<div class="col-md-6 panel">
 						<div class="panel-body">
 							<p class="text-right">
-								Copyright &copy; <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">hit-bic</a>
+								Copyright &copy; <a href="http://cs.hit.edu.cn/" target="_blank" title="hit">Harbin Institute of Technology</a>
 								<!-- - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> -->
 							</p>
 						</div>
@@ -311,7 +314,8 @@
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="static/js/modernizr-latest.js"></script>
-	<script type='text/javascript' src='static/js/jquery.min.js'></script>
+	<script src="static/js/jquery-1.8.3.js"></script>
+	<script src="static/js/jquery.cookie.js"></script>
     <script type='text/javascript' src='static/js/fancybox/jquery.fancybox.pack.js'></script>
     
     <script type='text/javascript' src='static/js/jquery.mobile.customized.min.js'></script>
