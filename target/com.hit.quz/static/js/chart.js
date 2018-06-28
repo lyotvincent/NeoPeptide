@@ -105,7 +105,7 @@ function LoadChart(sqldata){
             // $('#chart_vistor').highcharts('Map', {
             title : {
                 // text : map.cname || map.name
-                text: "World, Views"
+                text: "world-wide viewers"
             },
             // subtitle : {
             //     text : '地图数据： <a href="https://img.hcharts.cn/mapdata/index.html">'+map.name + '</a>'
@@ -171,7 +171,7 @@ function LoadChart(sqldata){
             // $('#chart_vistor').highcharts('Map', {
             title : {
                 //text : map.cname || map.name
-                text : "World, Downloads"
+                text : "world-wide  downloaders"
             },
             // subtitle : {
             //     text : '地图数据： <a href="https://img.hcharts.cn/mapdata/index.html">'+map.name + '</a>'

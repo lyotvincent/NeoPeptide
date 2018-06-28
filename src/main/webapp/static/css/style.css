@@ -79,7 +79,7 @@ margin: 7px 0 0 0;
 	margin-top: 10px;
 	font-size: 13px;
 	display: block;
-	padding-left: 59px;
+	padding-left: 109px;
 	color: #32A560;
 	line-height: 3.5em;
 }
@@ -1031,4 +1031,7 @@ padding-top: 0px;
 	width: 1400px;
 	height: 100%;
 	margin: 0 auto;
+}
+.marginlef14px{
+	margin-left: 14px;
 }

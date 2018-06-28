@@ -76,9 +76,10 @@ margin: 7px 0 0 0;
 	font-family: 'Comfortaa', cursive;
 }
 .navbar-brand span {
+	margin-top: 10px;
 	font-size: 13px;
 	display: block;
-	padding-left: 29px;
+	padding-left: 59px;
 	color: #32A560;
 	line-height: 3.5em;
 }
