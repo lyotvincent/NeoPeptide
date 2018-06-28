@@ -334,7 +334,7 @@ function FillData(data) {
 //         // "                            <option value=\"Antigen\">Antigen</option>"+
 //         // "                            <option value=\"Nucleic acid exchange\">Nucleic acid exchange</option>"+
 //         // "                            <option value=\"Amino acid exchange\">Amino acid exchange</option>"+
-//         "                            <option value=\"Hla Allele\">HLA Allele</option>"+
+//         "                            <option value=\"HLA/MHC Allele\">HLA/MHC Allele</option>"+
 //         "                            <option value=\"Length\">Length</option>"+
 //         "                            <option value=\"Peptide\">Peptide</option>"+
 //         // "                            <option value=\"Adjuvant\">Adjuvant</option>"+
