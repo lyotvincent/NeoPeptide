@@ -25,7 +25,16 @@ layui.use('form', function(){
             //找到旁边的input 增加autocomplete
             Search_bind_autocomplete(input ,true);
             //修改默认的提示信息
-            Search_ModifyDefaultWord(input,"example：HLA-A*02:01");
+            Search_ModifyDefaultWord(input,"example: HLA-A*02:01");
+        }else if (data.value == "Cancer") {
+            //修改默认的提示信息
+            Search_ModifyDefaultWord(input, "example: Ovarian Cancer");
+        }else if (data.value == "Gene") {
+            //修改默认的提示信息
+            Search_ModifyDefaultWord(input, "example: HMCN1");
+        }else if (data.value == "Peptide"){
+            //修改默认的提示信息
+            Search_ModifyDefaultWord(input, "example: MTLQRANSY");
         }else{
             //下拉菜单不是HLA/MHC Allele 删除autocomplete
             Search_bind_autocomplete(input,false);
@@ -110,7 +119,7 @@ function Search_AddRow() {
         "                    </form>"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_3\">"+
-        "                    <input type=\"text\" name=\"title\" placeholder=\"input your keyword\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
+        "                    <input type=\"text\" name=\"title\" placeholder=\"example: Ovarian Cancer\" autocomplete=\"off\" class=\"layui-input nput_exact_bar\">"+
         "                </div>"+
         "                <div class=\"layui-inline Search_layui_inline_4\">"+
         "                    <div class=\"layui-btn-group\">"+

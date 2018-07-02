@@ -15,7 +15,8 @@ body {
     /*background: #494A5F;*/
     /*background: #F0F0F0;*/
     font-weight: 800;
-    font-family: "Microsoft YaHei","宋体","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif, FreeSans, Arimo;
+
+    /*font-family: "Times New Roman";*/
     /*background-color: skyblue;*/
 
 }
@@ -95,7 +96,7 @@ div.search {
     margin: 1.125em 0 .5625em;
 }
 .download_link{
-    font-family: 'Open Sans Condensed', sans-serif;
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
     /*font-size: 1.8em;*/
     line-height: 150%;
     color: #7a98ff;

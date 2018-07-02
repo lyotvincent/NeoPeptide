@@ -19,20 +19,20 @@
     <result  column="No"  property="no"/>
     <result  column="Cancer" property="cancer"/>
     <result  column="Gene" property="gene" />
-    <result  column="Antigen" property="antigen" />
-    <result  column="Nucleic acid exchange" property="nucleicAcidExchange" />
-    <result  column="Amino acid exchange" property="aminoAcidExchange" />
-    <result  column="HLA Allele" property="hlaAllele"/>
+    <result  column="Neoantigen" property="antigen" />
+    <result  column="Nucleic Acid Exchange" property="nucleicAcidExchange" />
+    <result  column="Amino Acid Exchange" property="aminoAcidExchange" />
+    <result  column="HLA/MHC Allele" property="hlaAllele"/>
     <result  column="Length" property="length"/>
     <result  column="Peptide" property="peptide"/>
     <result  column="Adjuvant" property="adjuvant"/>
-    <result  column="Journal Ref" property="journalRef" />
+    <result  column="journalRef" property="journalRef" />
     <result  column="PMID" property="pmid" />
     <result  column="PeptideUnderlinePos" property="peptideUnderlinePos"/>
   </resultMap>
   <sql id="Base_Column_List">
-    No, Cancer, Gene, Antigen, `Nucleic acid exchange`, `Amino acid exchange`, `HLA Allele`,
-    Length, Peptide, PeptideUnderlinePos, Adjuvant, `Journal Ref`, PMID
+    No, Cancer, Gene, Neoantigen, `Nucleic Acid Exchange`, `Amino Acid Exchange`, `HLA/MHC Allele`,
+    Length, Peptide, PeptideUnderlinePos, Adjuvant, `journalRef`, PMID
   </sql>
   <select id="Cancer_SelectByKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     SELECT
