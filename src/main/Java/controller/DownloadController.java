@@ -17,9 +17,17 @@ public class DownloadController {
     @Value("#{projectProperties['filePath_xlsx']}")
     private String strfilepath_xlsx;
 
+    @Value("#{projectProperties['filePath_IEDBdoc']}")
+    private String strfilepath_IEDBdoc;
+
     @RequestMapping("/Cancer_dbf.do")
     public void downloaddbf(HttpServletRequest request, HttpServletResponse response) throws Exception {
         DownloadFile(response,strfilepath_dbf);
+    }
+
+    @RequestMapping("/IEDBdoc.do")
+    public void downloadIEDBdoc(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        DownloadFile(response,strfilepath_IEDBdoc);
     }
 
     @RequestMapping("/Cancer_xlsx.do")

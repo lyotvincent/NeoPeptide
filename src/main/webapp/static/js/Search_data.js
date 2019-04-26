@@ -191,7 +191,7 @@ function AddRow_Peptide(row,rowData) {
 
         if(pos == "" || pos == null || pos == undefined) {
             var idCell = document.createElement('td'); //创建第一列id
-            idCell.innerHTML = "<a class='myhref' href='http://www.syfpeithi.de/bin/MHCServer.dll/EpitopePrediction?Motif=ALL&amers=0&SEQU="+rowData['peptide']+"&DoIT=++Run++'>"+rowData['peptide']+"</a>";
+            idCell.innerHTML = "<a class='myhref' href='http://tools.iedb.org/mhci/?mhci_sequence="+ rowData['peptide'] +"&mhci_allele="+ rowData['hlaAllele'] +"&mhci_length="+ rowData['length'] +"'>"+rowData['peptide']+"</a>";
             row.appendChild(idCell); //加入行
         }else{
             var idCell = document.createElement('td'); //创建第一列id
@@ -200,7 +200,7 @@ function AddRow_Peptide(row,rowData) {
             var strunderline = str.slice(pos - 1, pos);
             var strpost = str.slice(pos);
             var myhtml = strpre + "<span style=\"color: red;\"><u>" + strunderline + "</u></span>" + strpost;
-            idCell.innerHTML = "<a class='myhref' href='http://www.syfpeithi.de/bin/MHCServer.dll/EpitopePrediction?Motif=ALL&amers=0&SEQU="+rowData['peptide']+"&DoIT=++Run++'>"+myhtml+"</a>";
+            idCell.innerHTML = "<a class='myhref' href='http://tools.iedb.org/mhci/?mhci_sequence="+ rowData['peptide'] +"&mhci_allele="+ rowData['hlaAllele'] +"&mhci_length="+ rowData['length'] +"'>"+rowData['peptide']+"</a>";
             row.appendChild(idCell); //加入行
         }
     }
