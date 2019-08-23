@@ -169,7 +169,7 @@ function Search_data_getDataRow(rowData){
     //     }
     // }
     //AddRowFunc('peptide');
-    AddRowFunc('adjuvant');
+    // AddRowFunc('adjuvant');
     AddRow_JournalRef(row,rowData);
     // AddRowFunc('journalRef',true);
     //journalRef 需要连接到pubmed，使用pmid定位比较方便
@@ -200,7 +200,7 @@ function AddRow_Peptide(row,rowData) {
             var strunderline = str.slice(pos - 1, pos);
             var strpost = str.slice(pos);
             var myhtml = strpre + "<span style=\"color: red;\"><u>" + strunderline + "</u></span>" + strpost;
-            idCell.innerHTML = "<a class='myhref' href='http://tools.iedb.org/mhci/?mhci_sequence="+ rowData['peptide'] +"&mhci_allele="+ rowData['hlaAllele'] +"&mhci_length="+ rowData['length'] +"'>"+rowData['peptide']+"</a>";
+            idCell.innerHTML = "<a class='myhref' href='http://tools.iedb.org/mhci/?mhci_sequence="+ rowData['peptide'] +"&mhci_allele="+ rowData['hlaAllele'] +"&mhci_length="+ rowData['length'] +"'>"+myhtml+"</a>";
             row.appendChild(idCell); //加入行
         }
     }
